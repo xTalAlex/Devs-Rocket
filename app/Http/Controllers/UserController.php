@@ -44,9 +44,18 @@ class UserController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function show()
+    public function show(User $user=null)
     {
+        if(!$user){
+            if(auth()->user())
+                $user=auth()->user();
+            else
+                return redirect()->route('login');
+        }
+
+
         return view('profile',[
+            'user' => $user,
             'socials' => \App\Models\Social::all(),
         ]);
     }
@@ -71,8 +80,6 @@ class UserController extends Controller
      */
     public function update(Request $request)
     {
-        $user=auth()->user();
-
         $validated = $request->validate([
             'newAvatar' => 'nullable|image',
             'removeAvatar' => 'nullable|boolean',
@@ -80,19 +87,18 @@ class UserController extends Controller
         ]);
 
         if($validated['newAvatar'] ?? false){
-            $user->clearMediaCollection('avatar');
-            $name=$user->id.'_avatar';
+            auth()->user()->clearMediaCollection('avatar');
+            $name=auth()->user()->id.'_avatar';
             $ext=$validated['newAvatar']->getClientOriginalExtension();
-            $user->addMediaFromRequest('newAvatar')->usingName($name)->usingFileName($name.'.'.$ext)->toMediaCollection('avatar');
+            auth()->user()->addMediaFromRequest('newAvatar')->usingName($name)->usingFileName($name.'.'.$ext)->toMediaCollection('avatar');
         }
         if($validated['removeAvatar']){
-            $user->clearMediaCollection('avatar'); 
+            auth()->user()->clearMediaCollection('avatar'); 
         }
 
-        $user->update([
-            'biography' => $validated['biography'],
+        auth()->user()->update([
+            'biography' => $validated['biography'] ?? null,
         ]);
-
     }
 
     /**

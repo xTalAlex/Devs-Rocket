@@ -14,11 +14,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('home');
+    return view('home',[
+        'developers' => \App\Models\User::developer()->get(),
+    ]);
 })->name('home');
 
+Route::get('/profile/{user?}', [App\Http\Controllers\UserController::class,'show'] )->name('profile');
+
 Route::middleware(['auth'])->group(function () {
-    Route::get('/profile', [App\Http\Controllers\UserController::class,'show'] )->name('profile');
     Route::post('/profile/update', [App\Http\Controllers\UserController::class,'update'] )->name('profile.update');
 });
 

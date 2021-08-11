@@ -54,6 +54,17 @@ class User extends Authenticatable implements  HasMedia
         'full_name',
     ];
 
+    /**
+     * Scope a query to only include developers.
+     *
+     * @param  \Illuminate\Database\Eloquent\Builder  $query
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeDeveloper($query)
+    {
+        return $query->has('role');
+    }
+
     public function role(){
         return $this->belongsTo(Role::class);
     }

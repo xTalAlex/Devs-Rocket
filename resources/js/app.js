@@ -4,11 +4,11 @@ require('./bootstrap');
 
 import { createApp } from 'vue'
 
-import Modal from './components/Modal.vue';
+import ModalProfileEdit from './components/ModalProfileEdit.vue';
 
 const app = createApp({});
 
-app.component('modal', Modal)
+app.component('modal-profile-edit', ModalProfileEdit)
     .mount('#app');
 
 function toggleNavbar(collapseID) {

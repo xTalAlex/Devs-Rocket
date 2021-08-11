@@ -49,8 +49,8 @@
                 <div class="relative">
                 <img
                     alt="Avatar"
-                    src="{{ auth()->user()->avatar }}"
-                    class="shadow-2xl  bg-white rounded-full h-36 w-36 max-w-min align-middle border-none absolute -m-16 -ml-20 lg:-ml-16 object-cover ring-4 ring-white"
+                    src="{{ $user->avatar }}"
+                    class="shadow-2xl bg-white rounded-full h-36 w-36 max-w-min align-middle border-none absolute -m-16 -ml-20 lg:-ml-16 object-cover ring-4 ring-white"
                 />
                 </div>
             </div>
@@ -60,14 +60,21 @@
                 class="w-full lg:w-4/12 px-4 lg:order-3 lg:text-right lg:self-center"
             >
                 <div class="flex items-center py-6 px-3 mt-32 sm:mt-0">
-                    <a  href="./admin"
-                        class="bg-gray-900 active:bg-pink-600 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1"
-                        type="button"
-                        style="transition: all 0.15s ease 0s;"
-                    >
-                        Admin Panel
-                    </a>
-                    <modal :user="{{ auth()->user()->with('socials')->first() }}" :socials="{{ $socials }}"></modal>
+                    
+                    @if(auth()->user() && auth()->user()->is($user))
+                        @if($user->isDeveloper())
+                        <a  href="/admin"
+                            class="bg-gray-900 active:bg-pink-600 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1"
+                            type="button"
+                            style="transition: all 0.15s ease 0s;"
+                        >
+                            Admin Panel
+                        </a>
+                        @endif
+
+                        <modal-profile-edit :user="{{ $user->load('socials') }}" :socials="{{ $socials }}"></modal-profile-edit>
+                    @endif
+
                 </div>
                 
             </div>
@@ -78,7 +85,7 @@
                     <span
                     class="text-xl font-bold block uppercase tracking-wide text-gray-700"
                     >Reclutato Il</span>
-                    <span class="text-sm text-gray-500">{{ auth()->user()->created_at->format('d M y') }}</span>
+                    <span class="text-sm text-gray-500">{{ $user->created_at->format('d M y') }}</span>
                 </div>
                 
                 </div>
@@ -88,7 +95,7 @@
                 <h3
                     class="text-4xl font-semibold leading-normal mb-2 text-gray-800"
                 >
-                    {{ auth()->user()->full_name }}
+                    {{ $user->full_name }}
                 </h3>
                 <div
                     class="text-sm leading-normal mt-0 mb-2 text-gray-500 font-bold lowercase"
@@ -96,13 +103,13 @@
                     <i
                     class="fas fa-envelope mr-2 text-lg text-gray-500"
                     ></i>
-                    {{ auth()->user()->email }}
+                    {{ $user->email }}
                 </div>
 
-                @if(auth()->user()->role)
+                @if($user->role)
                 <div class="mb-2 text-gray-700 mt-10">
                     <i class="fas fa-briefcase mr-2 text-lg text-gray-500"></i
-                    >{{ auth()->user()->role->description }}
+                    >{{ $user->role->description }}
                 </div>
                 @else
                 <div class="mb-2 text-gray-700 mt-10">
@@ -113,34 +120,34 @@
 
             </div>
             <div class="mt-10 py-10 border-t border-gray-300 text-center">
-            <div class="flex flex-wrap justify-center">
-                <div class="w-full lg:w-9/12 px-4">
-                <p class="mb-4 text-lg leading-relaxed text-gray-800">
-                    @if(auth()->user()->biography)
-                        {{ auth()->user()->biography }}
-                    @else
-                        Nessuna informazione
-                    @endif
-                </p>
+                <div class="flex flex-wrap justify-center">
+                    <div class="w-full lg:w-9/12 px-4">
+                    <p class="mb-4 text-lg leading-relaxed text-gray-800">
+                        @if($user->biography)
+                            {{ $user->biography }}
+                        @else
+                            Nessuna informazione
+                        @endif
+                    </p>
 
-                <div class="mt-6">
-                    @foreach(auth()->user()->socials as $social)
-                        <a
-                            href="{{ $social->pivot->link }}"
-                            class="bg-pink-500 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1"
-                            type="button"
-                        >
-                            <i class="fab fa-dribbble"></i>
-                        </a>
-                    @endforeach
+                    <div class="mt-6">
+                        @foreach($user->socials as $social)
+                            <a
+                                href="{{ $social->pivot->link }}"
+                                class="bg-pink-500 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1"
+                                type="button"
+                            >
+                                <i class="fab fa-dribbble"></i>
+                            </a>
+                        @endforeach
+                    </div>
+                    <!--
+                    <a href="#pablo" class="font-normal text-pink-500"
+                        >Show more</a
+                    >
+                    -->
+                    </div>
                 </div>
-                <!--
-                <a href="#pablo" class="font-normal text-pink-500"
-                    >Show more</a
-                >
-                -->
-                </div>
-            </div>
             </div>
         </div>
     </div>

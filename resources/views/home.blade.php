@@ -1,6 +1,6 @@
 <x-layout.master>
  
-  <div
+<div
   class="relative pt-16 pb-32 flex content-center items-center justify-center"
   style="min-height: 75vh;"
 >
@@ -13,7 +13,7 @@
       class="w-full h-full absolute opacity-75 bg-black"
     ></span>
   </div>
-  <div class="container relative mx-auto">
+  <div class="container relative mx-auto transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110">
     <div class="items-center flex flex-wrap">
       <div class="w-full lg:w-6/12 px-4 ml-auto mr-auto text-center">
         <div class="pr-12">
@@ -21,9 +21,8 @@
             Realizziamo il tuo sito web.
           </h1>
           <p class="mt-4 text-lg text-gray-300">
-            This is a simple example of a Landing Page you can build using
-            Tailwind Starter Kit. It features multiple CSS components
-            based on the Tailwindcss design system.
+            Vuoi che la tua idea di sito web prenda forma? Sei nel posto giusto.
+            Descrivici quello che vorresti e il nostro team ti guiderà verso la soluzione più adatta. 
           </p>
         </div>
       </div>
