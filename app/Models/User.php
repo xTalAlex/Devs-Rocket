@@ -11,6 +11,7 @@ use Spatie\MediaLibrary\InteractsWithMedia;
 
 class User extends Authenticatable implements  HasMedia
 {
+    use \Backpack\CRUD\app\Models\Traits\CrudTrait;
     use HasFactory, Notifiable, InteractsWithMedia;
 
     /**
@@ -25,6 +26,7 @@ class User extends Authenticatable implements  HasMedia
         'password',
         'last_seen',
         'biography',
+        'role_id',
     ];
 
     /**
