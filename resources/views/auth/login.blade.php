@@ -16,27 +16,27 @@
         @csrf
 
         <!-- Email Address -->
-        <div>
-            <x-label for="email" :value="__('Email')" />
+        <div class="mt-4 text-gray-200 focus-within:text-yellow-600">
+            <x-auth-label for="email" :value="__('Email')" class="block uppercase text-xs font-bold" />
 
-            <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
+            <x-auth-input id="email" class="block mt-2 w-full focus:ring focus:ring-yellow-600 text-yellow-200 focus:bg-yellow-600" type="email" name="email" :value="old('email')" required autofocus />
         </div>
 
         <!-- Password -->
-        <div class="mt-4">
-            <x-label for="password" class="block uppercase text-gray-700 text-xs font-bold mb-2" :value="__('Password')" />
+        <div class="mt-6 text-gray-200 focus-within:text-green-400">
+            <x-auth-label for="password" class="block uppercase text-xs font-bold" :value="__('Password')" />
 
-            <x-input id="password" class="block mt-1 w-full"
+            <x-auth-input id="password" class="block mt-2 w-full focus:ring focus:ring-green-400 text-green-200 focus:bg-green-400"
                 type="password"
                 name="password"
                 required autocomplete="current-password" />
         </div>
 
         <!-- Remember Me -->
-        <div class="block mt-4">
-            <label for="remember_me" class="inline-flex items-center uppercase text-gray-700 text-xs font-bold mb-2">
-                <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" name="remember">
-                <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
+        <div class="block mt-4 text-gray-200 focus-within:text-blue-400">
+                <input id="remember_me" type="checkbox" class="rounded border-2 bg-transparent text-blue-500 shadow-sm focus:border-transparent focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-blue-900" name="remember">
+            <label for="remember_me" class="inline-flex items-center">    
+                <span class="ml-2 text-xs font-bold uppercase">{{ __('Remember me') }}</span>
             </label>
         </div>
 

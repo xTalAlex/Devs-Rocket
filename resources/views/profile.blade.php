@@ -1,6 +1,6 @@
 <x-layout.master>
-
-<section class="relative block" style="height: 500px;">
+<div class="min-h-screen flex flex-col">
+<section class="relative block h-96">
 
     <div
         class="absolute top-0 w-full h-full bg-center bg-cover"
@@ -11,7 +11,6 @@
         class="w-full h-full absolute opacity-50 bg-black"
         ></span>
     </div>
-
     <div
         class="top-auto bottom-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden"
         style="height: 70px;"
@@ -31,10 +30,10 @@
         ></polygon>
         </svg>
     </div>
-
+    
 </section>
 
-<section class="relative py-16 bg-gray-300">
+<section class="relative h-auto flex-grow py-16 bg-gray-300">
 <div class="container mx-auto px-4">
     <div
     class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-xl rounded-lg -mt-64"
@@ -144,7 +143,8 @@
         </div>
     </div>
 </div>
-</section>
 
+</section>
+</div>
 </x-layout.master>
 
