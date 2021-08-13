@@ -81,13 +81,16 @@ class UserController extends Controller
     public function update(Request $request)
     {
         $validated = $request->validate([
-            'newAvatar' => 'nullable|image',
+            'newAvatar' => 'nullable|image|mimes:jpeg,jpg,png,gif',
             'removeAvatar' => 'nullable|boolean',
-            'biography' => 'nullable|string'
+            'biography' => 'nullable|string|max:300',
+            'socials' => 'required|array',
+            'socials.*.id' => 'required|exists:socials,id',
+            'socials.*.description' => 'required|exists:socials,description',
+            'socials.*.link' => 'nullable|string',
         ]);
 
         if($validated['newAvatar'] ?? false){
-            auth()->user()->clearMediaCollection('avatar');
             $name=auth()->user()->id.'_avatar';
             $ext=$validated['newAvatar']->getClientOriginalExtension();
             auth()->user()->addMediaFromRequest('newAvatar')->usingName($name)->usingFileName($name.'.'.$ext)->toMediaCollection('avatar');
@@ -95,6 +98,13 @@ class UserController extends Controller
         if($validated['removeAvatar']){
             auth()->user()->clearMediaCollection('avatar'); 
         }
+
+        $sync_data = [];     
+        foreach($validated['socials'] as $social){
+            if($social['link'])
+               $sync_data[$social['id']] = ['link' => $social['link']];
+        }
+        auth()->user()->socials()->sync($sync_data);
 
         auth()->user()->update([
             'biography' => $validated['biography'] ?? null,

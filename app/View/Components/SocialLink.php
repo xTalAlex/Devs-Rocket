@@ -17,7 +17,8 @@ class SocialLink extends Component
     public function __construct($social)
     {
         $this->name=strtolower($social->description);
-        $this->link=$social->pivot->link;
+        if($this->social->pivot)
+            $this->link=$social->pivot->link;
         switch(strtolower($social->description)){
             case 'Facebook':
                 $this->color='bg-blue-600';

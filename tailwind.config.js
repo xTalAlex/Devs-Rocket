@@ -27,6 +27,7 @@ module.exports = {
             ringWidth: ['hover', 'active'],
             ringColor: ['hover', 'active'],
             ringOpacity: ['hover', 'active'],
+            outline: ['hover', 'active', 'focus-within', 'focus'],
         },
     },
 

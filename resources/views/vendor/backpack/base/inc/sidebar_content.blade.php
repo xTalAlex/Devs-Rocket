@@ -3,6 +3,7 @@
 
 <li class="nav-title">Table</li>
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('user') }}'><i class='nav-icon la la-users'></i> Users</a></li>
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('mail') }}'><i class='nav-icon la la-envelope'></i> Mails</a></li>
 
 <li class="nav-title">Tools</li>
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('role') }}'><i class='nav-icon la la-briefcase'></i> Roles</a></li>

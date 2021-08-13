@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 class User extends Authenticatable implements  HasMedia
 {
@@ -65,12 +66,26 @@ class User extends Authenticatable implements  HasMedia
         return $query->has('role');
     }
 
+    public function registerMediaCollections(Media $media = null): void
+    {
+        $this->addMediaCollection('avatar')
+            ->singleFile()
+            //->withResponsiveImages()
+            ->acceptsMimeTypes(['image/jpeg','image/png','image/gif'])
+            ->useFallbackUrl('/assets/img/no_avatar.png')
+            ->useFallbackPath(public_path('/assets/img/no_avatar.png'));
+    }
+
     public function role(){
         return $this->belongsTo(Role::class);
     }
 
     public function socials(){
-        return $this->belongsToMany(Social::class)->as('social_user')->withPivot('link');
+        return $this->belongsToMany(Social::class,'social_user')->withPivot('link');
+    }
+
+    public function mails(){
+        return $this->hasMany(Mail::class);
     }
 
     public function isDeveloper(){
@@ -78,7 +93,7 @@ class User extends Authenticatable implements  HasMedia
     }
 
     public function getAvatarAttribute(){
-        return $this->getFirstMediaUrl('avatar') ? url($this->getFirstMediaUrl('avatar')) : '/assets/img/no_avatar.png';
+        return $this->getFirstMediaUrl('avatar');
     }
 
     public function getFullNameAttribute(){

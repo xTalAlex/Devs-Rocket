@@ -15,6 +15,6 @@ class Social extends Model
     protected $guarded = [];
 
     public function users(){
-        return $this->belongsToMany(Social::class)->as('social_user')->withPivot('link');
+        return $this->belongsToMany(Social::class,'social_user')->withPivot('link');
     }
 }

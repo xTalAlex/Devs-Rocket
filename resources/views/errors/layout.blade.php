@@ -7,6 +7,12 @@
 
 @section('after_styles')
   <style>
+    .error_banner{
+      background-image : url('assets/img/error_banner.jpg');
+      background-repeat : no-repeat;
+      width:100% ; 
+      height:100%;
+    }
     .error_number {
       font-size: 156px;
       font-weight: 600;
@@ -39,19 +45,24 @@
 @section('content')
 <div class="row">
   <div class="col-md-12 text-center">
+
     <div class="error_number">
       <small>ERROR</small><br>
       {{ $error_number }}
       <hr>
     </div>
+
     <div class="error_title text-muted">
       @yield('title')
     </div>
+
     <div class="error_description text-muted">
       <small>
         @yield('description')
      </small>
     </div>
+    
+
   </div>
 </div>
 @endsection

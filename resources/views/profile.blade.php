@@ -44,15 +44,13 @@
 
             <!-- Avatar -->
             <div
-                class="w-full lg:w-3/12 px-4 lg:order-2 flex justify-center"
+                class="w-full lg:w-3/12 px-4 lg:order-2 flex justify-center relative"
             >
-                <div class="relative">
                 <img
                     alt="Avatar"
                     src="{{ $user->avatar }}"
-                    class="shadow-2xl bg-white rounded-full h-36 w-36 max-w-min align-middle border-none absolute -m-16 -ml-20 lg:-ml-16 object-cover ring-4 ring-white"
+                    class="shadow-2xl bg-white rounded-full h-36 w-36 align-middle border-none absolute -m-16 -ml-20 lg:-ml-16 object-cover ring-4 ring-white"
                 />
-                </div>
             </div>
             <!-- End Avatar -->
 
@@ -130,15 +128,9 @@
                         @endif
                     </p>
 
-                    <div class="mt-6">
+                    <div class="flex mt-6 mx-auto justify-center items-center">
                         @foreach($user->socials as $social)
-                            <a
-                                href="{{ $social->pivot->link }}"
-                                class="bg-pink-500 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1"
-                                type="button"
-                            >
-                                <i class="fab fa-dribbble"></i>
-                            </a>
+                            <social-link :social="{{ $social }}"></social-link>
                         @endforeach
                     </div>
                     <!--

@@ -20,9 +20,15 @@ Route::get('/', function () {
 })->name('home');
 
 Route::get('/profile/{user?}', [App\Http\Controllers\UserController::class,'show'] )->name('profile');
+Route::post('/mail/send',[App\Http\Controllers\MailController::class,'store'])->name('mail.store');
 
 Route::middleware(['auth'])->group(function () {
     Route::post('/profile/update', [App\Http\Controllers\UserController::class,'update'] )->name('profile.update');
 });
+
+Route::get('/storage/emails/{email}/attachments/{media}/{filename}', function ($email,$media,$filename)
+{
+    return response()->file(storage_path('app/emails/'.$email.'\/attachments/'.$media.'/'.$filename));
+})->middleware('admin');
 
 require __DIR__.'/auth.php';
