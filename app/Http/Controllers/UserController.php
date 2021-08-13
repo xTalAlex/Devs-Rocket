@@ -44,9 +44,18 @@ class UserController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function show()
+    public function show(User $user=null)
     {
+        if(!$user){
+            if(auth()->user())
+                $user=auth()->user();
+            else
+                return redirect()->route('login');
+        }
+
+
         return view('profile',[
+            'user' => $user,
             'socials' => \App\Models\Social::all(),
         ]);
     }
@@ -71,28 +80,35 @@ class UserController extends Controller
      */
     public function update(Request $request)
     {
-        $user=auth()->user();
-
         $validated = $request->validate([
-            'newAvatar' => 'nullable|image',
+            'newAvatar' => 'nullable|image|mimes:jpeg,jpg,png,gif',
             'removeAvatar' => 'nullable|boolean',
-            'biography' => 'nullable|string'
+            'biography' => 'nullable|string|max:300',
+            'socials' => 'required|array',
+            'socials.*.id' => 'required|exists:socials,id',
+            'socials.*.description' => 'required|exists:socials,description',
+            'socials.*.link' => 'nullable|string',
         ]);
 
         if($validated['newAvatar'] ?? false){
-            $user->clearMediaCollection('avatar');
-            $name=$user->id.'_avatar';
+            $name=auth()->user()->id.'_avatar';
             $ext=$validated['newAvatar']->getClientOriginalExtension();
-            $user->addMediaFromRequest('newAvatar')->usingName($name)->usingFileName($name.'.'.$ext)->toMediaCollection('avatar');
+            auth()->user()->addMediaFromRequest('newAvatar')->usingName($name)->usingFileName($name.'.'.$ext)->toMediaCollection('avatar');
         }
         if($validated['removeAvatar']){
-            $user->clearMediaCollection('avatar'); 
+            auth()->user()->clearMediaCollection('avatar'); 
         }
 
-        $user->update([
-            'biography' => $validated['biography'],
-        ]);
+        $sync_data = [];     
+        foreach($validated['socials'] as $social){
+            if($social['link'])
+               $sync_data[$social['id']] = ['link' => $social['link']];
+        }
+        auth()->user()->socials()->sync($sync_data);
 
+        auth()->user()->update([
+            'biography' => $validated['biography'] ?? null,
+        ]);
     }
 
     /**

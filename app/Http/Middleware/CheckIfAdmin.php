@@ -28,8 +28,7 @@ class CheckIfAdmin
      */
     private function checkIfUserIsAdmin($user)
     {
-        //return ($user->isDeveloper());
-        return true;
+        return ($user->isDeveloper());
     }
 
     /**
@@ -58,11 +57,11 @@ class CheckIfAdmin
      */
     public function handle($request, Closure $next)
     {
-        if (auth()->guest()) {
+        if (backpack_auth()->guest()) {
             return $this->respondToUnauthorizedRequest($request);
         }
 
-        if (! $this->checkIfUserIsAdmin(auth()->user())) {
+        if (! $this->checkIfUserIsAdmin(backpack_auth()->user())) {
             return $this->respondToUnauthorizedRequest($request);
         }
 

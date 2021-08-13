@@ -21,11 +21,10 @@
     <div class="container mx-auto px-4 lg:pt-24 lg:pb-64">
       <div class="flex flex-wrap text-center justify-center">
         <div class="w-full lg:w-6/12 px-4">
-          <h2 class="text-4xl font-semibold text-white">Build something</h2>
+          <h2 class="text-4xl font-semibold text-white">I Nostri Kit</h2>
           <p class="text-lg leading-relaxed mt-4 mb-4 text-gray-500">
-            Put the potentially record low maximum sea ice extent tihs year
-            down to low ice. According to the National Oceanic and
-            Atmospheric Administration, Ted, Scambos.
+            Se sei indeciso, dai un'occhiata a questi esempi di lavoro.
+            Possiamo modificare ogni particolare per soddisfare le tue esigenze.
           </p>
         </div>
       </div>

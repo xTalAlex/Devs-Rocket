@@ -1,10 +1,10 @@
 <?php
 
-namespace App\MediaLibrary;
+namespace App\Services\MediaLibrary;
 
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use Spatie\MediaLibrary\Support\PathGenerator\PathGenerator;
-use App\Models\User;
+use App\Models\{User, Mail};
 
 class CustomPathGenerator implements PathGenerator
 {
@@ -15,6 +15,10 @@ class CustomPathGenerator implements PathGenerator
 
             case User::class:
                 return 'users'.DIRECTORY_SEPARATOR.$media->model_id.DIRECTORY_SEPARATOR.'avatar'.DIRECTORY_SEPARATOR.$media->id.DIRECTORY_SEPARATOR;
+                break;
+            
+            case Mail::class:
+                return 'emails'.DIRECTORY_SEPARATOR.$media->model_id.DIRECTORY_SEPARATOR.'attachments'.DIRECTORY_SEPARATOR.$media->id.DIRECTORY_SEPARATOR;
                 break;
                 
             default:
