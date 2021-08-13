@@ -28,7 +28,7 @@
         Cercaci su queste piattaforme, rispondiamo entro 1-2 giorni lavorativi.
       </h5>
       <div class="mt-6">
-        <a href="https://www.facebook.com/talale93" target="_blank">
+        <a href="https://www.facebook.com/RocketDevelopers" target="_blank">
           <button
             class="bg-white text-blue-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2 p-3"
             type="button"
@@ -36,12 +36,12 @@
             <i class="flex fab fa-facebook-square"></i></button
           >
         </a>
-        <a href="https://github.com/xTalAlex" target="_blank">
+        <a href="https://instagram.com/RocketDevelopers" target="_blank">
           <button
-            class="bg-white text-blue-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2 p-3"
+            class="bg-white text-gray-800 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2 p-3"
             type="button"
           >
-            <i class="flex fab fa-github"></i></button
+            <i class="flex fab fa-instagram"></i></button
           >
         </a>
       </div>
@@ -49,9 +49,10 @@
 
     <div class="w-full lg:w-6/12 px-4">
       <div class="flex flex-wrap items-top mb-6">
-        <div class="w-full lg:w-4/12 px-4 ml-auto">
+        
+        <div class="w-full lg:w-4/12 px-4 ml-auto mt-4 lg:mt-0">
           <span
-            class="block uppercase text-gray-600 text-sm font-semibold mb-2"
+            class="block uppercase text-gray-900 text-sm font-extrabold mb-2"
             >Link Utili</span
           >
           <ul class="list-unstyled">
@@ -85,9 +86,10 @@
             </li>
           </ul>
         </div>
-        <div class="w-full lg:w-4/12 px-4">
+        
+        <div class="w-full lg:w-4/12 px-4 mt-4 lg:mt-0">
           <span
-            class="block uppercase text-gray-600 text-sm font-semibold mb-2"
+            class="block uppercase text-gray-900 text-sm font-extrabold mb-2"
             >Altre Risorse</span
           >
           <ul class="list-unstyled">

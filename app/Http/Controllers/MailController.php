@@ -37,12 +37,15 @@ class MailController extends Controller
      */
     public function store(Request $request)
     {
-       $validated=$request->validate([
-            'name' => 'required|string|alpha_spaces',
-            'email' => 'required|email',
-            'message' => 'required|string|max:1000',
-            'attachment' => 'nullable|mimetypes:application/zip,image/jpeg,application/pdf|max:10240',
-        ]);
+        $notification_type="success";
+        $notification_message="Email Inviata!";
+
+        $validated=$request->validate([
+                'name' => 'required|string|alpha_spaces',
+                'email' => 'required|email',
+                'message' => 'required|string|max:1000',
+                'attachment' => 'nullable|mimetypes:application/zip,image/jpeg,application/pdf|max:10240',
+            ]);
 
         $user=\App\Models\User::where('email',$validated['email'])->first();
 
@@ -53,16 +56,27 @@ class MailController extends Controller
             'message'   => $validated['message'],
         ]);
 
-        if($validated['attachment']){
-            $name=$validated['attachment']->getClientOriginalName();
-            $mail->addMediaFromRequest('attachment')->usingFileName($name)->toMediaCollection('attachment','local');
+        if($mail){
+            if($validated['attachment'] ?? false){
+                try{
+                    $name=$validated['attachment']->getClientOriginalName();
+                    $mail->addMediaFromRequest('attachment')->usingFileName($name)->toMediaCollection('attachment','local');
+                }
+                catch (\Exception $e) {
+                    $notification_type="warning";
+                    $notification_message="Email inviata, ma l'allegato é andato perso.";
+                }
+            }
+
+            if(env('MAIL_FROM_ADDRESS', false))
+                Mail::to(env('MAIL_FROM_ADDRESS'))->send(new MailOfRequest($mail));
+        }
+        else{
+            $notification_type="error";
+            $notification_message="Errore durante l'elaborazione della mail.";
         }
 
-        if(env('MAIL_FROM_ADDRESS', false))
-            Mail::to(env('MAIL_FROM_ADDRESS'))->send(new MailOfRequest($mail));
-        
-        //return error o success
-        return back();
+        return back()->with($notification_type, $notification_message);
     }
 
     /**

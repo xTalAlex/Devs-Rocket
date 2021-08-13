@@ -3,10 +3,15 @@
 
 @component('mail::panel')
 {{ $mail->message }}
+
+@if($mail->attachment)
+Controlla il file allegato!
+@endif
+
 @endcomponent
 
-@component('mail::button', ['url' => route('profile') ])
-Vai al profilo
+@component('mail::button', ['url' => route('backpack') ])
+Vai al pannello
 @endcomponent
 
 Grazie,<br>

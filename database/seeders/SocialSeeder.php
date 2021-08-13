@@ -21,7 +21,6 @@ class SocialSeeder extends Seeder
             ['id' => 4, 'description' => 'Github' ],
             ['id' => 5, 'description' => 'Discord' ],
             ['id' => 6, 'description' => 'Youtube' ],
-			['id' => 7, 'description' => 'Skype' ],
 		];
 
 		foreach ($items as $item) {

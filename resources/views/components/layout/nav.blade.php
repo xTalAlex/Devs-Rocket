@@ -22,7 +22,7 @@
 
   <!-- Icons -->
   <div
-    class="lg:flex flex-grow items-center bg-white lg:bg-transparent lg:shadow-none hidden"
+    class="lg:flex flex-grow items-center bg-gray-300 bg-opacity-90 lg:bg-transparent lg:shadow-none hidden"
     id="example-collapse-navbar"
   >
 
@@ -47,29 +47,7 @@
       <li class="flex items-center">
         <a
           class="lg:text-white lg:hover:text-gray-300 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
-          href="https://www.facebook.com/talale93"
-          target="_blank"
-          ><i
-            class="lg:text-gray-300 text-gray-500 fab fa-facebook text-lg leading-lg "
-          ></i
-          ><span class="lg:hidden inline-block ml-2">Share</span></a
-        >
-      </li>
-      <li class="flex items-center">
-        <a
-          class="lg:text-white lg:hover:text-gray-300 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
-          href="https://www.instagram.com/xtalale93x/"
-          target="_blank"
-          ><i
-            class="lg:text-gray-300 text-gray-500 fab fa-instagram text-lg leading-lg "
-          ></i
-          ><span class="lg:hidden inline-block ml-2">Tag</span></a
-        >
-      </li>
-      <li class="flex items-center">
-        <a
-          class="lg:text-white lg:hover:text-gray-300 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
-          href="https://www.youtube.com/channel/UCQo0FqOqqA1sEddLUrZBGMQ"
+          href="https://www.youtube.com/channel/RocketDevelopers"
           target="_blank"
           ><i
             class="lg:text-gray-300 text-gray-500 fab fa-youtube text-lg leading-lg "
@@ -80,18 +58,18 @@
       <li class="flex items-center">
         <a
           class="lg:text-white lg:hover:text-gray-300 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
-          href="https://soundcloud.com/talale93"
+          href="https://discord.gg/UrUMbT2q"
           target="_blank"
           ><i
-            class="lg:text-gray-300 text-gray-500 fab fa-soundcloud text-lg leading-lg "
+            class="lg:text-gray-300 text-gray-500 fab fa-discord text-lg leading-lg "
           ></i
-          ><span class="lg:hidden inline-block ml-2">Listen</span></a
+          ><span class="lg:hidden inline-block ml-2">Star</span></a
         >
       </li>
       <li class="flex items-center">
         <a
           class="lg:text-white lg:hover:text-gray-300 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
-          href="https://github.com/xTalAlex"
+          href="https://github.com/xTalAlex/Rocket-Developers"
           target="_blank"
           ><i
             class="lg:text-gray-300 text-gray-500 fab fa-github text-lg leading-lg "
@@ -100,7 +78,8 @@
         >
       </li>
       
-      <li class="flex items-center">
+      
+      <li class="flex items-center justify-end lg:justify-auto mx-4 p-1 lg:mx-0 lg:p-0">
         @auth
 
           <a

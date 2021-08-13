@@ -29,13 +29,17 @@ class MailOfRequest extends Mailable
      */
     public function build()
     {
-        return $this->markdown('emails.mail_of_request',[
+        $mail=$this->markdown('emails.mail_of_request',[
                 'mail' => $this->mail,
             ])
-            ->from($this->mail->email)
-            ->attach( $this->mail->attachment->getPath(),[
-                        'as' => $this->mail->attachment->file_name,
-                        'mime' => $this->mail->attachment->mime_type
-                    ]);
+            ->from($this->mail->email);
+        
+        if($this->mail->attachment)
+            $mail->attach( $this->mail->attachment->getPath(),[
+                'as' => $this->mail->attachment->file_name,
+                'mime' => $this->mail->attachment->mime_type
+                ]);
+        
+        return $mail;
     }
 }
