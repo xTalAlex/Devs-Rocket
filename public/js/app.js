@@ -20229,7 +20229,7 @@ var _withId = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.withScopeId)("dat
 
 var _hoisted_1 = {
   key: 0,
-  "class": "fixed top-0 right-0 mx-6 mt-2 lg:mt-24 z-50 overflow-hidden"
+  "class": "mt-1 overflow-hidden"
 };
 var _hoisted_2 = {
   "class": "flex items-center"
@@ -20258,7 +20258,7 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
   }, {
     "default": _withId(function () {
       return [$data.visible ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
-        "class": ["bg-red-200 text-gray-600 rounded-lg shadow-md p-6 pr-4 inline-flex lg:max-w-xl", {
+        "class": ["bg-red-200 text-gray-600 rounded-lg shadow-md p-6 pr-4 inline-flex lg:max-w-xl relative", {
           'bg-red-200': $props.type === 'error',
           'bg-yellow-200': $props.type === 'warning',
           'bg-green-200': $props.type === 'success'
@@ -20270,7 +20270,7 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
         }, ["prevent"]))
       }, "×"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_2, [_hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("b", _hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($options.label), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.message), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.message.substring(0, 99) + ($props.message.length > 100 ? '...' : '')), 1
       /* TEXT */
       )])])], 2
       /* CLASS */

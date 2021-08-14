@@ -1,10 +1,9 @@
 <template>
     <Transition name="slide-fade"> 
-
-        <div v-if="visible" class="fixed top-0 right-0 mx-6 mt-2 lg:mt-24 z-50 overflow-hidden">
+        <div v-if="visible" class="mt-1 overflow-hidden">
 
             <div
-                class="bg-red-200 text-gray-600 rounded-lg shadow-md p-6 pr-4 inline-flex lg:max-w-xl"
+                class="bg-red-200 text-gray-600 rounded-lg shadow-md p-6 pr-4 inline-flex lg:max-w-xl relative"
                 :class="{
                     'bg-red-200': type === 'error',
                     'bg-yellow-200': type === 'warning',
@@ -20,7 +19,7 @@
                         <i class="fas fa-bell"></i>
                     </span>
                     <span class="inline-block align-middle mr-8">
-                        <b class="capitalize">{{ label }}</b> {{ message }}
+                        <b class="capitalize">{{ label }}</b> {{ message.substring(0,99) + (message.length > 100 ? '...' : '') }}
                     </span>
                 </div>
 

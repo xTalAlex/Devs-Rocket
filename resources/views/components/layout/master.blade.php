@@ -13,19 +13,21 @@
 
         <main class="relative">
             {{ $slot }}
-
-            @if(session()->get('success'))
-                <flash-message type="success" message="{{session()->get('success')}}" ></flash-message>
-            @elseif(session()->get('warning'))
-                <flash-message type="warning" message="{{session()->get('warning')}}" ></flash-message>
-            @elseif(session()->get('error'))
-                <flash-message type="error" message="{{session()->get('error')}}" ></flash-message>
-            @endif
         </main>
 
         <footer class="w-full bottom-0 bg-gray-300 pt-8 pb-6" >
             <x-layout.footer/>
         </footer>
+
+        <div class="flex flex-col jusctify-center fixed top-0 right-0 mt-1 md:mt-2 lg:mt-2 mx-4 md:mr-4 z-50"> 
+            @if(session()->get('success'))
+                <flash-message type="success" message="{{ session()->get('success') }}" ></flash-message>
+            @elseif(session()->get('warning'))
+                <flash-message type="warning" message="{{ session()->get('warning') }}" ></flash-message>
+            @elseif(session()->get('error'))
+                <flash-message type="error" message="{{ session()->get('error') }}" ></flash-message>
+            @endif     
+        </div>
 
     </body>
 
