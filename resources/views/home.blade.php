@@ -13,7 +13,7 @@
       class="w-full h-full absolute opacity-75 bg-black"
     ></span>
   </div>
-  <div class="container relative mx-auto transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110">
+  <div class="container relative mx-auto">
     <div class="items-center flex flex-wrap">
       <div class="w-full lg:w-6/12 px-4 ml-auto mr-auto text-center">
         <div class="pr-12">

@@ -11,12 +11,12 @@
     
     <div v-if="showModal" class="opacity-80 fixed inset-0 z-50 bg-black"></div>
 
-    <div v-if="showModal" class="fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center flex mx-auto max-w-xl">
-      <div class="relative w-full my-6 h-auto overflow-x-hidden overflow-auto  scrollbar-thin scrollbar-thumb-gray-900">
-        <!--content-->
-        <div class="border-0 rounded-lg shadow-lg relative p-5 flex flex-col w-full bg-gray-300 outline-none focus:outline-none">
+    <div v-if="showModal" class="fixed z-50 inset-0  mx-auto max-w-xl outline-none focus:outline-none px-2 h-screen overflow-scroll scrollbar">
+      <div class=" w-full mx-auto my-1 xl:my-6 ">
+        <!--c ontent-->
+        <div class="border-0 rounded-lg shadow-lg relative p-5 flex flex-col w-full bg-gray-300 outline-none focus:outline-none h-full">
           <!--header-->
-          <div class="flex items-start justify-between p-5  rounded-t">
+          <div class="flex items-start justify-between p-5 rounded-t">
             <h3 class="text-3xl font-semibold">
               Modifica il profilo
             </h3>
@@ -28,10 +28,10 @@
           </div>
           <!--body-->
           <div class="relative p-6 flex-auto">
-            <form class="mb-4 text-blueGray-500 flex-row text-left text-lg leading-relaxed" @submit.prevent="submit()" >
+            <form class="mb-4 flex-row text-left text-lg leading-relaxed" @submit.prevent="submit()" >
 
                 <div class="mb-2">
-                  <label  class="block uppercase text-gray-700 text-xs font-bold mb-2">Avatar</label>
+                  <label  class="block uppercase text-gray-900 text-xs font-bold mb-2">Avatar</label>
                   <span class="block text-xs text-gray-500">Formati accettati: .jpg,.png,.gif</span>
                     <span class="text-gray-900 h-6 w-6 text-xl block ml-32 -mb-6 outline-none focus:outline-none cursor-pointer"
                       @click="removeAvatar=1"
@@ -41,7 +41,7 @@
                     <img class="flex object-cover w-36 h-36 mr-2 mt-2 rounded-full ring-2 ring-gray-900 items-center justify-center" :src="showedAvatar" alt="Avatar"
                       @click="addFiles()"
                     />
-                    <input type="file" class="hidden border-0 px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
+                    <input type="file" class="hidden border-0 px-3 py-3 placeholder-gray-400 text-gray-900 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
                           style="transition: all 0.15s ease 0s;"
                           ref="newAvatar"
                           @change="handleFileUpload()"
@@ -49,14 +49,14 @@
                 </div>
 
                 <div class="mb-2">
-                  <label  class="block uppercase text-gray-700 text-xs font-bold mb-2">Biografia</label>
+                  <label  class="block uppercase text-gray-900 text-xs font-bold mb-2">Biografia</label>
                   <textarea maxlength="300" class="resize-none border-0 px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded-xl text-sm shadow focus:outline-none focus:ring w-full h-32
                     overflow-y-scroll overscroll-y-auto scrollbar-thin scrollbar-thumb-gray-900"
                     style="transition: all 0.15s ease 0s;"  v-model="biography"></textarea>
                 </div>
 
                 <div class="mb-2">
-                  <label class="block uppercase text-gray-700 text-xs font-bold mb-2">Social</label>
+                  <label class="block uppercase text-gray-900 text-xs font-bold mb-2">Social</label>
                   <div class="max-h-52 overflow-y-auto overscroll-y-auto scrollbar-thin scrollbar-thumb-gray-900 px-4">
                     <div v-for="social in socials" :key="social.id" class="inline-flex items-center justify-center rounded-full mt-2 w-auto bg-white p-1">
                       <SocialLink :social="social" class="-mb-1 -mr-1"/>

@@ -43,7 +43,7 @@ class RegisteredUserController extends Controller
                 $password=Hash::make(\Illuminate\Support\Str::random(8));
             } else {
                 // Invalid ID token
-                return redirect()->route('register')->flash("error","accesso all'account Google non riuscito.");
+                return redirect()->route('register')->with("error","accesso all'account Google non riuscito.");
             }
         }
         

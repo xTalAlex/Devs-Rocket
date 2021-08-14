@@ -28,7 +28,7 @@
               src="https://images.unsplash.com/photo-1555212697-194d092e3b8f?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=634&amp;q=80"
             />
           -->
-          <video class="w-96 h-full rounded-lg shadow-lg invisible md:visible transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110" 
+          <video class="w-96 h-0 md:h-full rounded-lg shadow-lg invisible md:visible" 
             onclick="this.paused ? this.play() : this.pause()"
           >
             <source src="/assets/img/fantazoo_sigla.mp4" type="video/mp4">
@@ -36,7 +36,8 @@
           </video>
 
         </div>
-        <div class="w-full md:w-5/12 ml-auto mr-auto px-4 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110">
+
+        <div class="w-full md:w-5/12 ml-auto mr-auto px-4">
           <div class="md:pr-12">
             <div
               class="text-yellow-600 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-yellow-300"
@@ -49,7 +50,7 @@
               started faster. You can change the text and images and you're
               good to go.
             </p>
-            <ul class="list-none mt-6">
+            <ul class="list-none mt-6 transition duration-500 ease-in-out transform lg:hover:-translate-y-1 lg:hover:scale-110">
               <li class="py-2">
                 <div class="flex items-center">
                   <div>
@@ -59,13 +60,13 @@
                     ></span>
                   </div>
                   <div>
-                    <h4 class="text-gray-600 hover:font-bold">
+                    <h4 class="text-gray-600 hover:font-bold hover:ml-1">
                       Carefully crafted components
                     </h4>
                   </div>
                 </div>
               </li>
-              <li class="py-2">
+              <li class="py-2 ">
                 <div class="flex items-center">
                   <div>
                     <span
@@ -74,7 +75,7 @@
                     ></span>
                   </div>
                   <div>
-                    <h4 class="text-gray-600 hover:font-bold">
+                    <h4 class="text-gray-600 hover:font-bold hover:ml-1">
                       Amazing page examples
                     </h4>
                   </div>
@@ -89,12 +90,13 @@
                     ></span>
                   </div>
                   <div>
-                    <h4 class="text-gray-600 hover:font-bold">
+                    <h4 class="text-gray-600 hover:font-bold hover:ml-1">
                       Dynamic components
                     </h4>
                   </div>
                 </div>
               </li>
+              
               
             </ul>
           </div>

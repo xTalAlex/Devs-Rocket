@@ -12,7 +12,10 @@
                 Scrivici e ti risponderemo entro 24 ore.
               </p>
 
-              <form method="POST" action="{{ route('mail.store') }}" enctype="multipart/form-data"> 
+              <form method="POST" action="{{ route('mail.store') }}" enctype="multipart/form-data"               
+                ref="form" 
+                @submit.prevent 
+              > 
               @csrf
               <div class="relative w-full mb-3 mt-8">
                 <x-label
@@ -102,9 +105,10 @@
 
               <div class="text-center mt-6">
                 <button
-                  class="animate-pulse bg-gray-900 text-white active:bg-gray-700 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1"
+                  class="animate-pulse active:animate-none bg-gray-900 text-white active:bg-gray-700 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1"
                   type="submit"
                   style="transition: all 0.15s ease 0s;"
+                  @click.once="$refs.form.submit()"
                 >
                   Invia
                 </button>

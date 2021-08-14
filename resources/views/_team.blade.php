@@ -1,7 +1,7 @@
-<section class="pt-20 pb-48">
+<section class="pt-8 md:pt-20 pb-48">
     <div class="container mx-auto px-4">
 
-      <div class="flex flex-wrap justify-center text-center mb-24">
+      <div class="flex flex-wrap justify-center text-center mb-10 lg:mb-24">
         <div class="w-full lg:w-6/12 px-4">
           <h2 class="text-4xl font-semibold">Il Nostro Team</h2>
           <p class="text-lg leading-relaxed m-4 text-gray-600">
@@ -10,7 +10,7 @@
         </div>
       </div>
 
-      <div class="flex flex-wrap items-center justify-center">
+      <div class="flex flex-wrap items-start justify-center">
 
         @foreach($developers as $developer)
             <x-developer-card :developer="$developer"></x-developer-card>

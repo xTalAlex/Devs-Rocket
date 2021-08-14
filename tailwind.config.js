@@ -21,8 +21,11 @@ module.exports = {
 
     variants: {
         extend: {
-            opacity: ['disabled'],
-            animation: ['hover', 'focus'],
+            backgroundColor: ['hover', 'focus','active'],
+            margin: ['hover', 'focus','active'],
+            opacity: ['disabled','active'],
+            animation: ['hover', 'focus','active','group-hover'],
+            transition : ['hover', 'focus','group-hover'],
             fontWeight: ['hover', 'focus'],
             ringWidth: ['hover', 'active'],
             ringColor: ['hover', 'active'],

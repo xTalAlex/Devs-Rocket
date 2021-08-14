@@ -60,7 +60,7 @@
 
       </div>
       <div class="flex flex-wrap items-center mt-32">
-        <div class="w-full md:w-5/12 px-4 mr-auto ml-auto transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110">
+        <div class="w-full md:w-5/12 px-4 mr-auto ml-auto lg:transition duration-500 ease-in-out transform lg:hover:-translate-y-1 lg:hover:scale-110">
           <div
             class="text-gray-600 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-red-500"
           >
@@ -89,7 +89,7 @@
           >
         </div>
         
-        <div class="w-full md:w-4/12 px-4 mr-auto ml-auto transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110">
+        <div class="w-full md:w-4/12 px-4 mr-auto ml-auto mt-4 lg:mt-0">
           <div
             class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-red-500  "
           >
@@ -111,13 +111,15 @@
                   class="text-red-500 fill-current"
                 ></polygon>
               </svg>
-              <h4 class="text-xl font-bold text-white">
-                Rocket Developers
-              </h4>
-              <p class="text-md font-light mt-2 text-white">
-                Lorem ipsum dolor sit amet, consectetur adipisci elit, sed do eiusmod tempor incidunt ut labore et dolore magna aliqua. 
-                Ut enim ad minim veniam, quis nostrum exercitationem ullamco laboriosam, nisi ut aliquid ex ea commodi consequatur. 
-              </p>
+              <div class="p-2 lg:transition duration-500 ease-in-out transform lg:hover:-translate-y-1 lg:hover:scale-110">
+                <h4 class="text-xl font-bold text-white">
+                  Rocket Developers
+                </h4>
+                <p class="text-md font-light mt-2 text-white">
+                  Lorem ipsum dolor sit amet, consectetur adipisci elit, sed do eiusmod tempor incidunt ut labore et dolore magna aliqua. 
+                  Ut enim ad minim veniam, quis nostrum exercitationem ullamco laboriosam, nisi ut aliquid ex ea commodi consequatur. 
+                </p>
+              </div>
             </blockquote>
           </div>
         </div>

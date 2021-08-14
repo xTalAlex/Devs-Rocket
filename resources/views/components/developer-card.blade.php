@@ -15,7 +15,7 @@
       <p class="mt-1 text-sm text-gray-500 uppercase font-semibold">
           {{ $developer->role->description }}
       </p>
-      <div class="flex mt-6 mx-auto items-center justify-center">
+      <div class="flex mt-2 mx-auto items-center justify-center mb-2">
         @foreach($developer->socials as $social)
           <social-link :social="{{$social}}" ></social-link>
         @endforeach
