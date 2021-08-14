@@ -76,7 +76,7 @@ class MailController extends Controller
             $notification_message="Errore durante l'elaborazione della mail.";
         }
 
-        return back()->with($notification_type, $notification_message);
+        return back()->flash($notification_type, $notification_message);
     }
 
     /**

@@ -1,4 +1,4 @@
-<section class="relative block py-24 lg:pt-0 bg-gray-900">
+<section id="mailbox" class="relative block py-24 lg:pt-0 bg-gray-900">
     <div class="container mx-auto px-4 mt-4">
       <div class="flex flex-wrap justify-center lg:-mt-64 -mt-48">
         <div class="w-full lg:w-6/12 px-4">      

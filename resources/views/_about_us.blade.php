@@ -83,9 +83,9 @@
             gli stessi che vengono utilizzati da molte importanti aziende.
           </p>
           <a
-            href="https://www.creative-tim.com/learning-lab/tailwind-starter-kit#/presentation"
+            href="#mailbox"
             class="font-bold text-gray-800 mt-8"
-            >Check Tailwind Starter Kit!</a
+            >Scrivici per domande o proposte di lavoro!</a
           >
         </div>
         

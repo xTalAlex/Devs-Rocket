@@ -24,3 +24,6 @@
 
 <!-- Vue -->
 <script src="{{ asset('js/app.js') }}" defer></script>
+
+<!-- Google Sign In -->
+<script src="https://accounts.google.com/gsi/client" async defer></script>
