@@ -31,8 +31,12 @@
             <form class="mb-4 flex-row text-left text-lg leading-relaxed" @submit.prevent="submit()" >
 
                 <div class="mb-2">
-                  <label  class="block uppercase text-gray-900 text-xs font-bold mb-2">Avatar</label>
-                  <span class="block text-xs text-gray-500">Formati accettati: .jpg,.png,.gif</span>
+                  <label  class="block uppercase text-gray-900 text-xs font-bold mb-2"
+                    :class="{ 'text-red-500' : errors && errors.newAvatar  }"
+                  >Avatar</label>
+                  <span class="block text-xs text-gray-500"
+                    :class="{ 'text-red-500' : errors && errors.newAvatar  }"
+                  >Formati accettati: .jpg,.png,.gif (massimo 10MB)</span>
                     <span class="text-gray-900 h-6 w-6 text-xl block ml-32 -mb-6 outline-none focus:outline-none cursor-pointer"
                       @click="removeAvatar=1"
                     >
@@ -49,19 +53,25 @@
                 </div>
 
                 <div class="mb-2">
-                  <label  class="block uppercase text-gray-900 text-xs font-bold mb-2">Biografia</label>
+                  <label  class="block uppercase text-gray-900 text-xs font-bold mb-2"
+                    :class="{ 'text-red-500' : errors && errors.biography  }"
+                  >Biografia</label>
                   <textarea maxlength="300" class="resize-none border-0 px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded-xl text-sm shadow focus:outline-none focus:ring w-full h-32
                     overflow-y-scroll overscroll-y-auto scrollbar-thin scrollbar-thumb-gray-900"
+                    :class="{ 'bg-red-300' : errors && errors.biography  }"
                     style="transition: all 0.15s ease 0s;"  v-model="biography"></textarea>
                 </div>
 
                 <div class="mb-2">
-                  <label class="block uppercase text-gray-900 text-xs font-bold mb-2">Social</label>
+                  <label class="block uppercase text-gray-900 text-xs font-bold mb-2"
+                  >Social</label>
                   <div class="max-h-52 overflow-y-auto overscroll-y-auto scrollbar-thin scrollbar-thumb-gray-900 px-4">
-                    <div v-for="social in socials" :key="social.id" class="inline-flex items-center justify-center rounded-full mt-2 w-auto bg-white p-1">
+                    <div v-for="social in socials" :key="social.id" class="inline-flex items-center justify-center rounded-full mt-2 w-auto bg-white p-1"
+                      :class="{ 'bg-red-300' : errors && errors['socials.'+(social.id-1)+'.link']  }"
+                    >
                       <SocialLink :social="social" class="-mb-1 -mr-1"/>
                       <input type="text" 
-                        class="border-0 placeholder-gray-400 text-gray-700 bg-transparent text-sm focus:border-transparent focus-within:outline-none w-96"
+                        class="border-0 placeholder-gray-400 text-gray-700 bg-transparent text-sm focus:border-transparent focus-within:outline-none w-96"               
                         :placeholder="social.description"
                         v-model="inputSocials.find(x => x.description===social.description).link"
                         style="transition: all 0.15s ease 0s;" />

@@ -81,7 +81,7 @@ class UserController extends Controller
     public function update(Request $request)
     {
         $validated = $request->validate([
-            'newAvatar' => 'nullable|image|mimes:jpeg,jpg,png,gif',
+            'newAvatar' => 'nullable|image|mimes:jpeg,jpg,png,gif|max:1000',
             'removeAvatar' => 'nullable|boolean',
             'biography' => 'nullable|string|max:300',
             'socials' => 'required|array',
