@@ -1,5 +1,5 @@
 <template>
-    <label class="bg-gray-900 text-white text-sm font-bold px-3 py-2 rounded w-full inline-flex items-center shadow tracking-wide cursor-pointer">
+    <label class="bg-gray-900 opacity-80 hover:opacity-100 text-white text-sm font-bold px-3 py-2 rounded w-full inline-flex items-center shadow tracking-wide cursor-pointer">
         <i class="fas fa-arrow-up"></i>
         <span class="ml-2 w-full">
             {{ curLabel }}

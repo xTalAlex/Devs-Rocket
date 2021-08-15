@@ -11,6 +11,7 @@
         class="w-full h-full absolute opacity-50 bg-black"
         ></span>
     </div>
+    
     <div
         class="top-auto bottom-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden"
         style="height: 70px;"
@@ -61,7 +62,7 @@
                         @if(auth()->user() && auth()->user()->is($user))
                             @if($user->isDeveloper())
                             <a  href="/admin"
-                                class="bg-red-600 active:bg-black uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1"
+                                class="bg-red-600 hover:bg-red-700 active:bg-red-800 active:opacity-90 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none mr-1 sm:mr-2 mb-1"
                                 type="button"
                                 style="transition: all 0.15s ease 0s;"
                             >
@@ -98,16 +99,21 @@
                 <div
                     class="text-sm leading-normal mt-0 mb-2 text-gray-500 font-bold lowercase"
                 >
-                    <i
-                    class="fas fa-envelope mr-2 text-lg opacity-90
-                            @if($user->email_verified_at)
-                            text-green-300 
-                            @else
-                             text-gray-500
-                            @endif
-                        "
-                    ></i>
+                    <tooltip-top 
+                        value="{{ $user->email_verified_at ? 'Email verificata il '.$user->email_verified_at->format('d/m/y') : 'Email non verificata.'}}"
+                    >
+                        <i
+                        class="fas fa-envelope mr-2 text-lg opacity-90
+                                @if($user->email_verified_at)
+                                text-green-300 
+                                @else
+                                text-gray-500
+                                @endif
+                            "
+                        ></i>
+                    </tooltip-top>
                     <a href="mailto:{{ $user->email }}">{{ $user->email }}</a>
+
                 </div>
 
                 @if($user->role)

@@ -7,7 +7,7 @@
     class="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start"
   >
     <a
-      class="text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase text-white"
+      class="text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase text-white hover:text-gray-400"
       href="{{ route('home') }}"
       >Rocket Developers</a
     ><button
@@ -15,29 +15,29 @@
       type="button"
       onclick="toggleNavbar('example-collapse-navbar')"
     >
-      <i class="text-white fas fa-bars"></i>
+      <i class="text-white hover:text-gray-300 fas fa-bars"></i>
     </button>
   </div>
   <!-- End Logo -->
 
   <!-- Icons -->
   <div
-    class="lg:flex flex-grow items-center bg-gray-300 bg-opacity-90 lg:bg-transparent lg:shadow-none hidden"
+    class="lg:flex flex-grow items-center bg-black bg-opacity-90 lg:bg-transparent lg:shadow-none hidden"
     id="example-collapse-navbar"
   >
 
     <!-- Left Icon -->
-    <ul class="flex flex-col lg:flex-row list-none mr-auto">
+    <ul class="flex flex-col lg:flex-row list-none lg:mr-auto">
       <li class="flex items-center">
         <a
-          class="lg:text-white lg:hover:text-gray-300 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+          class="lg:text-white hover:text-gray-300 text-gray-400 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
           href="https://www.creative-tim.com/learning-lab/tailwind-starter-kit#/landing"
           target="_blank"
           ><i
-            class="lg:text-gray-300 text-gray-500 far fa-file-alt text-lg leading-lg mr-2"
+            class="lg:text-gray-300 text-gray-400 far fa-file-alt text-lg leading-lg mr-2"
           ></i>
-          Docs</a
-        >
+          <span class="inline-block lg:text-gray-300 text-gray-400 hover:text-gray-300 lg:hover:text-gray-500">Docs</span>
+        </a>
       </li>
     </ul>
     <!-- End Left Icon -->
@@ -46,35 +46,35 @@
     <ul class="flex flex-col lg:flex-row list-none lg:ml-auto">
       <li class="flex items-center">
         <a
-          class="lg:text-white lg:hover:text-gray-300 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+          class="lg:text-white hover:text-gray-300 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
           href="https://www.youtube.com/channel/RocketDevelopers"
           target="_blank"
           ><i
-            class="lg:text-gray-300 text-gray-500 fab fa-youtube text-lg leading-lg "
+            class="text-gray-400 lg:text-gray-300 lg:hover:text-gray-500 fab fa-youtube text-lg leading-lg "
           ></i
-          ><span class="lg:hidden inline-block ml-2">Watch</span></a
+          ><span class="lg:hidden inline-block ml-2 text-gray-400 hover:text-gray-300">Youtube</span></a
         >
       </li>
       <li class="flex items-center">
         <a
-          class="lg:text-white lg:hover:text-gray-300 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+          class="lg:text-white hover:text-gray-300 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
           href="https://discord.gg/UrUMbT2q"
           target="_blank"
           ><i
-            class="lg:text-gray-300 text-gray-500 fab fa-discord text-lg leading-lg "
+            class="text-gray-400 lg:text-gray-300 lg:hover:text-gray-500 fab fa-discord text-lg leading-lg "
           ></i
-          ><span class="lg:hidden inline-block ml-2">Star</span></a
+          ><span class="lg:hidden inline-block ml-2 text-gray-400 hover:text-gray-300">Discord</span></a
         >
       </li>
       <li class="flex items-center">
         <a
-          class="lg:text-white lg:hover:text-gray-300 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+          class="lg:text-white hover:text-gray-300 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
           href="https://github.com/xTalAlex/Rocket-Developers"
           target="_blank"
           ><i
-            class="lg:text-gray-300 text-gray-500 fab fa-github text-lg leading-lg "
+            class="text-gray-400 lg:text-gray-300 lg:hover:text-gray-500 fab fa-github text-lg leading-lg "
           ></i
-          ><span class="lg:hidden inline-block ml-2">Star</span></a
+          ><span class="lg:hidden inline-block ml-2 text-gray-400 hover:text-gray-300">GitHub</span></a
         >
       </li>
       
@@ -83,7 +83,7 @@
         @auth
 
           <a
-            class="bg-white text-gray-800 active:bg-gray-100 text-xs font-bold uppercase px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none lg:mr-1 lg:mb-0 ml-3 mb-3"
+            class="bg-white hover:bg-gray-300 active:bg-gray-400 text-gray-800 hover:opacity-80 text-xs font-bold uppercase px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none lg:mr-1 lg:mb-0 ml-3 mb-3"
             type="button"
             style="transition: all 0.15s ease 0s;"
             href="{{ route('profile') }}"
@@ -94,7 +94,7 @@
           <form method="POST" action="{{ route('logout') }}">
           @csrf
             <a
-              class="bg-white text-gray-800 active:bg-gray-100 text-xs font-bold uppercase px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none lg:mr-1 lg:mb-0 ml-3 mb-3"
+              class="bg-white hover:bg-gray-300 active:bg-gray-400 text-gray-800 hover:opacity-80 text-xs font-bold uppercase px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none lg:mr-1 lg:mb-0 ml-3 mb-3"
               type="button"
               style="transition: all 0.15s ease 0s;"
               href="{{ route('logout') }}"
@@ -106,7 +106,7 @@
 
         @else
           <a
-            class="bg-white text-gray-800 active:bg-gray-100 text-xs font-bold uppercase px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none lg:mr-1 lg:mb-0 ml-3 mb-3"
+            class="bbg-white hover:bg-gray-300 active:bg-gray-400 text-gray-800 hover:opacity-80 text-xs font-bold uppercase px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none lg:mr-1 lg:mb-0 ml-3 mb-3"
             type="button"
             style="transition: all 0.15s ease 0s;"
             href="{{ route('login') }}"
@@ -115,7 +115,7 @@
           </a>
 
           <a
-            class="bg-white text-gray-800 active:bg-gray-100 text-xs font-bold uppercase px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none lg:mr-1 lg:mb-0 ml-3 mb-3"
+            class="bg-white hover:bg-gray-300 active:bg-gray-400 text-gray-800 hover:opacity-800 text-xs font-bold uppercase px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none lg:mr-1 lg:mb-0 ml-3 mb-3"
             type="button"
             style="transition: all 0.15s ease 0s;"
             href="{{ route('register') }}"

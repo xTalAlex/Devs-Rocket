@@ -3,11 +3,11 @@
         <div v-if="visible" class="mt-1 overflow-hidden">
 
             <div
-                class="bg-red-200 text-gray-600 rounded-lg shadow-md p-6 pr-4 inline-flex lg:max-w-xl relative"
+                class="bg-red-300 text-gray-600 rounded-lg shadow-md p-6 pr-4 inline-flex lg:max-w-xl relative"
                 :class="{
-                    'bg-red-200': type === 'error',
-                    'bg-yellow-200': type === 'warning',
-                    'bg-green-200': type === 'success',
+                    'bg-red-300': type === 'error',
+                    'bg-yellow-300': type === 'warning',
+                    'bg-green-300': type === 'success',
                 }"
             >
                 <button class="opacity-75 cursor-pointer absolute top-0 right-0 py-2 px-3 hover:opacity-100"

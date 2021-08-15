@@ -26,7 +26,7 @@
                 <flash-message type="warning" message="{{ session()->get('warning') }}" ></flash-message>
             @elseif(session()->get('error'))
                 <flash-message type="error" message="{{ session()->get('error') }}" ></flash-message>
-            @endif     
+            @endif
         </div>
 
     </body>

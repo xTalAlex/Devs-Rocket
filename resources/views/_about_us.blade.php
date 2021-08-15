@@ -59,12 +59,12 @@
         </div>
 
       </div>
-      <div class="flex flex-wrap items-center mt-32">
-        <div class="w-full md:w-5/12 px-4 mr-auto ml-auto lg:transition duration-500 ease-in-out transform lg:hover:-translate-y-1 lg:hover:scale-110">
+      <div class="flex flex-wrap items-center mt-16 lg:mt-32">
+        <div class="w-full md:w-5/12 px-4 mr-auto ml-auto">
           <div
-            class="text-gray-600 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-red-500"
+            class="text-gray-600 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-red-500 group"
           >
-            <i class="fas fa-rocket text-xl text-white"></i>
+            <i class="fas fa-rocket text-xl text-white group-hover:animate-bounce shadow-2xl"></i>
           </div>
           <h3 class="text-3xl mb-2 font-semibold leading-normal">
             Lavora con noi
@@ -76,29 +76,33 @@
             sulle novitá che riguardano le tecnologie con cui lavoriamo.
             In questo modo riusciamo ad implementare grafiche moderne e funzionalitá complesse. 
           </p>
-          <p
-            class="text-lg font-light leading-relaxed mt-0 mb-4 text-gray-700"
-          >
+          <p class="text-lg font-light leading-relaxed mt-0 mb-4 text-gray-700">
             Creiamo siti da zero completamente personalizzabili utilizzando framework innovativi come <strong class="font-semibold">Laravel</strong>, 
             <strong class="font-semibold">Livewire</strong>, <strong class="font-semibold ">Vuejs</strong> e <strong class="font-semibold">TailwindCSS</strong>: 
             gli stessi che vengono utilizzati da molte importanti aziende.
           </p>
-          <a
-            href="#mailbox"
-            class="font-bold text-gray-800 mt-8"
-            >Scrivici per domande o proposte di lavoro!</a
-          >
+          <p class="transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110">
+            <a
+              href="#mailbox"
+              class="font-bold text-gray-800 mt-8"
+              >Scrivici per domande o proposte di lavoro!</a
+            >
+          </p>
         </div>
         
-        <div class="w-full md:w-4/12 px-4 mr-auto ml-auto mt-4 lg:mt-0">
+        <div class="w-full md:w-4/12 px-4 mr-auto ml-auto mt-16 lg:mt-0">
           <div
             class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-red-500  "
           >
-            <img
-              alt="..."
-              src="https://www.cloudways.com/blog/wp-content/uploads/Building-Laravel-Android-App-With-Laravel-REST-API-2.jpg "
-              class="w-full align-middle rounded-t-lg"
-            />
+
+            <video class="w-full align-middle rounded-t-lg cursor-pointer" 
+              onclick="this.paused ? this.play() : this.pause()"
+              autoplay loop muted
+            >
+              <source src="/assets/img/motto.mp4" type="video/mp4">
+                Il tuo browser non supporta il formato di questo video.
+            </video>
+
             <blockquote class="relative p-8 mb-4">
               <svg
                 preserveAspectRatio="none"
@@ -112,7 +116,7 @@
                   class="text-red-500 fill-current"
                 ></polygon>
               </svg>
-              <div class="p-2 lg:transition duration-500 ease-in-out transform lg:hover:-translate-y-1 lg:hover:scale-110">
+              <div class="p-2">
                 <h4 class="text-xl font-bold text-white">
                   Rocket Developers
                 </h4>
