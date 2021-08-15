@@ -1,6 +1,6 @@
 <div 
     class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-900"
-    style="background-image: url(./assets/img/register_bg_2.png); background-size: 100%; background-repeat: no-repeat;"
+    style="background-image: url(./assets/img/auth_bg.png); background-size: 100%; background-repeat: no-repeat;"
 >
     <div class="mt-16">
         {{ $logo }}

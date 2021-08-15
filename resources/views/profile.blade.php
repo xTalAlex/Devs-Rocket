@@ -61,7 +61,7 @@
                         @if(auth()->user() && auth()->user()->is($user))
                             @if($user->isDeveloper())
                             <a  href="/admin"
-                                class="bg-gray-900 active:bg-pink-600 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1"
+                                class="bg-red-600 active:bg-black uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1"
                                 type="button"
                                 style="transition: all 0.15s ease 0s;"
                             >
@@ -99,19 +99,25 @@
                     class="text-sm leading-normal mt-0 mb-2 text-gray-500 font-bold lowercase"
                 >
                     <i
-                    class="fas fa-envelope mr-2 text-lg text-gray-500"
+                    class="fas fa-envelope mr-2 text-lg opacity-90
+                            @if($user->email_verified_at)
+                            text-green-300 
+                            @else
+                             text-gray-500
+                            @endif
+                        "
                     ></i>
-                    {{ $user->email }}
+                    <a href="mailto:{{ $user->email }}">{{ $user->email }}</a>
                 </div>
 
                 @if($user->role)
                 <div class="mb-2 text-gray-700 mt-10">
-                    <i class="fas fa-briefcase mr-2 text-lg text-gray-500"></i
+                    <i class="fas fa-briefcase mr-2 text-lg text-yellow-600 opacity-80"></i
                     >{{ $user->role->description }}
                 </div>
                 @else
                 <div class="mb-2 text-gray-700 mt-10">
-                    <i class="fas fa-user-alt mr-2 text-lg text-gray-500"></i
+                    <i class="fas fa-user-alt mr-2 text-lg text-gray-500 opacity-80"></i
                     >Ospite
                 </div>    
                 @endif

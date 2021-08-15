@@ -79,7 +79,8 @@
           <p
             class="text-lg font-light leading-relaxed mt-0 mb-4 text-gray-700"
           >
-            Creiamo siti da zero completamente personalizzabili utilizzando framework innovativi come Laravel, Vuejs e TailwindCSS: 
+            Creiamo siti da zero completamente personalizzabili utilizzando framework innovativi come <strong class="font-semibold">Laravel</strong>, 
+            <strong class="font-semibold">Livewire</strong>, <strong class="font-semibold ">Vuejs</strong> e <strong class="font-semibold">TailwindCSS</strong>: 
             gli stessi che vengono utilizzati da molte importanti aziende.
           </p>
           <a

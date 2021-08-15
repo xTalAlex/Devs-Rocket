@@ -46,6 +46,7 @@ class UserCrudController extends CrudController
             'type'      => 'image',
             'height' => '48px',
             'width'  => '48px',
+            'radius' => '9999px',
         ]);
         CRUD::addColumn([
             'name'  => 'role.description',

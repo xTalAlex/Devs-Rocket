@@ -32,9 +32,10 @@
   @else
     @includeWhen(!empty($column['wrapper']), 'crud::columns.inc.wrapper_start')
         <img src="{{ $src }}" style="
-        max-height: {{ $column['height'] }};
+        height: {{ $column['height'] }};
         width: {{ $column['width'] }};
-        border-radius: {{ $column['radius'] }};"
+        border-radius: {{ $column['radius'] }};
+        object-fit:cover;"
         />
     @includeWhen(!empty($column['wrapper']), 'crud::columns.inc.wrapper_end')
   @endif
