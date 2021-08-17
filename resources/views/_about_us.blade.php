@@ -118,7 +118,7 @@
               </svg>
               <div class="p-2">
                 <h4 class="text-xl font-bold text-white">
-                  Rocket Developers
+                  Devs Rocket
                 </h4>
                 <p class="text-md font-light mt-2 text-white">
                   Lorem ipsum dolor sit amet, consectetur adipisci elit, sed do eiusmod tempor incidunt ut labore et dolore magna aliqua. 

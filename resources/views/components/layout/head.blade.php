@@ -2,7 +2,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#000000" />
 
-<title>Rocket Developers</title>
+<title>Devs Rocket</title>
 <link rel="shortcut icon" href="./assets/img/favicon.ico" />
 <link
   rel="apple-touch-icon"

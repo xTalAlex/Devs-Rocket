@@ -3,6 +3,7 @@
     <x-separator color="gray-900"></x-separator>
 
     <div class="container mx-auto px-4 lg:pt-24 lg:pb-64">
+
       <div class="flex flex-wrap text-center justify-center">
         <div class="w-full lg:w-6/12 px-4">
           <h2 class="text-4xl font-semibold text-white">I Nostri Kit</h2>
@@ -12,47 +13,37 @@
           </p>
         </div>
       </div>
+
       <div class="flex flex-wrap mt-12 justify-center">
-        <div class="w-full lg:w-3/12 px-4 text-center">
-          <div
-            class="text-gray-900 p-3 w-12 h-12 shadow-lg rounded-full bg-white inline-flex items-center justify-center"
-          >
-            <i class="fas fa-medal text-xl"></i>
-          </div>
-          <h6 class="text-xl mt-5 font-semibold text-white">
+
+        <x-features.card>
+          <x-slot name="title">
             Excelent Services
-          </h6>
-          <p class="mt-2 mb-4 text-gray-500">
-            Some quick example text to build on the card title and make up
-            the bulk of the card's content.
-          </p>
-        </div>
-        <div class="w-full lg:w-3/12 px-4 text-center">
-          <div
-            class="text-gray-900 p-3 w-12 h-12 shadow-lg rounded-full bg-white inline-flex items-center justify-center"
-          >
-            <i class="fas fa-poll text-xl"></i>
-          </div>
-          <h5 class="text-xl mt-5 font-semibold text-white">
-            Grow your market
-          </h5>
-          <p class="mt-2 mb-4 text-gray-500">
-            Some quick example text to build on the card title and make up
-            the bulk of the card's content.
-          </p>
-        </div>
-        <div class="w-full lg:w-3/12 px-4 text-center">
-          <div
-            class="text-gray-900 p-3 w-12 h-12 shadow-lg rounded-full bg-white inline-flex items-center justify-center"
-          >
+          </x-slot>
+          <x-slot name="icon">
             <i class="fas fa-lightbulb text-xl"></i>
-          </div>
-          <h5 class="text-xl mt-5 font-semibold text-white">Launch time</h5>
-          <p class="mt-2 mb-4 text-gray-500">
-            Some quick example text to build on the card title and make up
-            the bulk of the card's content.
-          </p>
-        </div>
+          </x-slot>
+          Some quick example text to build on the card title and make up the bulk of the card's content.
+        </x-features.card>
+
+        <x-features.card>
+          <x-slot name="title">
+            Grow your market
+        </x-slot>
+            Some quick example text to build on the card title and make up the bulk of the card's content.
+        </x-features.card>
+
+        <x-features.card>
+          <x-slot name="title">
+            Launch time
+          </x-slot>
+          <x-slot name="icon">
+            <i class="fas fa-lightbulb text-xl"></i>
+          </x-slot>
+            Some quick example text to build on the card title and make up the bulk of the card's content.
+        </x-features.card>
+
       </div>
+
     </div>
   </section>

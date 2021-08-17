@@ -24629,7 +24629,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_SocialLink = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("SocialLink");
 
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("a", {
-    "class": "active:bg-pink-600 uppercase font-bold hover:shadow-md cursor-pointer shadow text-md px-2 py-1 rounded sm:mr-2 mb-1",
+    "class": "bg-gray-200 hover:bg-gray-300 active:bg-gray-500 sctive:opacity-80 uppercase font-bold hover:shadow-md cursor-pointer shadow-xl text-md px-2 py-1 rounded sm:mr-2 mb-1",
     type: "button",
     style: {
       "transition": "all 0.15s ease 0s"

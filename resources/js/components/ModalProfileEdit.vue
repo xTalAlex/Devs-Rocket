@@ -1,7 +1,7 @@
 <template>
   <div>
     <a
-      class="active:bg-pink-600 uppercase font-bold hover:shadow-md cursor-pointer shadow text-md px-2 py-1 rounded sm:mr-2 mb-1"
+      class="bg-gray-200 hover:bg-gray-300 active:bg-gray-500 sctive:opacity-80 uppercase font-bold hover:shadow-md cursor-pointer shadow-xl text-md px-2 py-1 rounded sm:mr-2 mb-1"
       type="button"
       style="transition: all 0.15s ease 0s;"
       @click="toggleModal()"
