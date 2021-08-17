@@ -1,6 +1,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#000000" />
+<meta name="google-site-verification" content="-XNJhW8Izhl_fDcwrE528h3CSxOR6U13lA8QF1kLtkw" />
 
 <title>Devs Rocket</title>
 <link rel="shortcut icon" href="./assets/img/favicon.ico" />
@@ -27,3 +28,4 @@
 
 <!-- Google Sign In -->
 <script src="https://accounts.google.com/gsi/client" async defer></script>
+
