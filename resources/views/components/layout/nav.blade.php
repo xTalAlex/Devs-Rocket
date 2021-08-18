@@ -22,7 +22,7 @@
 
   <!-- Icons -->
   <div
-    class="lg:flex flex-grow items-center bg-black bg-opacity-90 lg:bg-transparent lg:shadow-none hidden"
+    class="lg:flex flex-grow items-center bg-black bg-opacity-90 lg:bg-transparent shadow-2xl lg:shadow-none origin-top transition-transform transform duration-500 lg:transition-none lg:transform-none scale-y-0 h-0"
     id="example-collapse-navbar"
   >
 

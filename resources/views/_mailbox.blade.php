@@ -106,7 +106,7 @@
 
               <div class="text-center mt-6">
                 <button
-                  class="animate-pulse group-hover:animate-none bg-gray-900 text-white active:bg-black text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1"
+                  class="animate-pulse group-hover:animate-none bg-gray-900 hover:text-white text-gray-200 active:bg-gray-700 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1"
                   type="submit"
                   style="transition: all 0.15s ease 0s;"
                   @click.once="$refs.form.submit()"

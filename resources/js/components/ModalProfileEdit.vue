@@ -1,7 +1,7 @@
 <template>
   <div>
     <a
-      class="bg-gray-200 hover:bg-gray-300 active:bg-gray-500 sctive:opacity-80 uppercase font-bold hover:shadow-md cursor-pointer shadow-xl text-md px-2 py-1 rounded sm:mr-2 mb-1"
+      class="bg-gray-200 hover:bg-gray-300 active:bg-gray-500 active:bg-opacity-80 uppercase font-bold hover:shadow-md cursor-pointer shadow-xl text-md px-2 py-1 rounded sm:mr-2 mb-1"
       type="button"
       style="transition: all 0.15s ease 0s;"
       @click="toggleModal()"
@@ -11,7 +11,7 @@
     
     <div v-if="showModal" class="opacity-80 fixed inset-0 z-50 bg-black"></div>
 
-    <div v-if="showModal" class="fixed z-50 inset-0  mx-auto max-w-xl outline-none focus:outline-none px-2 h-screen overflow-scroll scrollbar">
+    <div v-if="showModal" class="fixed z-50 inset-0 mx-auto max-w-xl outline-none focus:outline-none px-2 h-screen overflow-scroll scrollbar">
       <div class=" w-full mx-auto my-1 xl:my-6 ">
         <!--c ontent-->
         <div class="border-0 rounded-lg shadow-lg relative p-5 flex flex-col w-full bg-gray-300 outline-none focus:outline-none h-full">

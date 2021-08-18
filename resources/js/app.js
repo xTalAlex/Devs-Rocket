@@ -5,6 +5,7 @@ require('./bootstrap');
 import { createApp } from 'vue'
 
 import ModalProfileEdit from './components/ModalProfileEdit.vue';
+import ModalMedia from './components/ModalMedia.vue';
 import SocialLink from './components/SocialLink.vue';
 import FileUploader from './components/FileUploader.vue';
 import FlashMessage from './components/FlashMessage.vue';
@@ -17,4 +18,5 @@ app.component('modal-profile-edit', ModalProfileEdit)
     .component('file-uploader', FileUploader)
     .component('flash-message', FlashMessage)
     .component('tooltip-top', TooltipTop)
+    .component('modal-media',ModalMedia)
     .mount('#app');

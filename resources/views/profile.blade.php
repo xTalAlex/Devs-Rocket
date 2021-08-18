@@ -62,7 +62,7 @@
                         @if(auth()->user() && auth()->user()->is($user))
                             @if($user->isDeveloper())
                             <a  href="/admin"
-                                class="bg-red-600 hover:bg-red-700 active:bg-red-800 active:opacity-90 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none mr-1 sm:mr-2 mb-1"
+                                class="bg-red-600 hover:bg-red-700 active:bg-red-800 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none mr-1 sm:mr-2 mb-1"
                                 type="button"
                                 style="transition: all 0.15s ease 0s;"
                             >
