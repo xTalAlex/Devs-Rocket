@@ -24606,23 +24606,23 @@ var _hoisted_3 = {
   "class": "fixed inset-0 z-50 w-full p-2 h-screen overflow-hidden flex justify-center items-center"
 };
 var _hoisted_4 = {
-  "class": "flex flex-col max-w-3xl container"
+  "class": "flex flex-col max-w-3xl container max-h-screen"
 };
 var _hoisted_5 = {
-  "class": "p-2 container overflow-auto"
+  "class": "p-2 container"
 };
 var _hoisted_6 = {
-  "class": "inline-flex w-full justify-between"
+  "class": "inline-flex w-full justify-end md:justify-between"
 };
 
 var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("p", {
-  "class": "text-center text-white"
+  "class": "hidden md:block text-center text-white text-xl"
 }, "Descrizione", -1
 /* HOISTED */
 );
 
 var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("svg", {
-  "class": "fill-current text-white ",
+  "class": "fill-current text-white",
   xmlns: "http://www.w3.org/2000/svg",
   width: "18",
   height: "18",
@@ -24633,11 +24633,13 @@ var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("
 /* HOISTED */
 );
 
-var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("img", {
+var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
+  "class": " overflow-auto max-h-screen w-full"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("img", {
   alt: "Imagine",
-  "class": "object-contain",
+  "class": "object-contain h-full w-full",
   src: "/assets/img/error_banner.jpg"
-}, null, -1
+})], -1
 /* HOISTED */
 );
 
