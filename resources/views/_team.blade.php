@@ -1,4 +1,4 @@
-<section class="pt-8 md:pt-20 pb-48">
+<section class="pt-8 pb-8 lg:pb-48">
     <div class="container mx-auto px-4">
 
       <div class="flex flex-wrap justify-center text-center mb-10 lg:mb-24">

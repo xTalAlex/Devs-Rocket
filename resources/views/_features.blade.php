@@ -2,7 +2,7 @@
 
     <x-separator color="gray-900"></x-separator>
 
-    <div class="container mx-auto px-4 lg:pt-24 lg:pb-64">
+    <div class="container mx-auto px-4 pt-8 lg:pt-24 lg:pb-64">
 
       <div class="flex flex-wrap text-center justify-center">
         <div class="w-full lg:w-6/12 px-4">
@@ -21,7 +21,7 @@
             Excelent Services
           </x-slot>
           <x-slot name="icon">
-            <i class="fas fa-lightbulb text-xl"></i>
+            <i class="fas fa-lightbulb text-xl "></i>
           </x-slot>
           Some quick example text to build on the card title and make up the bulk of the card's content.
         </x-features.card>

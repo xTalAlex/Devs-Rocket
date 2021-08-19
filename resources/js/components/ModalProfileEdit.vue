@@ -11,7 +11,7 @@
     
     <div v-if="showModal" class="opacity-80 fixed inset-0 z-50 bg-black"></div>
 
-    <div v-if="showModal" class="fixed z-50 inset-0 mx-auto max-w-xl outline-none focus:outline-none px-2 h-screen overflow-scroll scrollbar">
+    <div v-if="showModal" class="fixed z-50 inset-0 mx-auto max-w-xl outline-none focus:outline-none px-2 h-screen overflow-scroll scrollbar-thin scrollbar-thumb-gray-900">
       <div class=" w-full mx-auto my-1 xl:my-6 ">
         <!--c ontent-->
         <div class="border-0 rounded-lg shadow-lg relative p-5 flex flex-col w-full bg-gray-300 outline-none focus:outline-none h-full">

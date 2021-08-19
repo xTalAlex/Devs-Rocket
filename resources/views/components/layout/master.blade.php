@@ -19,7 +19,7 @@
             <x-layout.footer/>
         </footer>
 
-        <div class="flex flex-col jusctify-center fixed top-0 right-0 mt-1 md:mt-2 lg:mt-2 mx-4 md:mr-4 z-50"> 
+        <div class="flex flex-col justify-center fixed top-0 right-0 mt-1 md:mt-2 lg:mt-2 mx-4 md:mr-4 z-50"> 
             @if(session()->get('success'))
                 <flash-message type="success" message="{{ session()->get('success') }}" ></flash-message>
             @elseif(session()->get('warning'))
