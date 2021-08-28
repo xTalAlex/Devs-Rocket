@@ -23,6 +23,7 @@ module.exports = {
         extend: {
             backgroundColor: ['hover', 'focus','active'],
             margin: ['hover', 'focus','active'],
+            shadow: ['hover', 'focus','active','focus'],
             opacity: ['disabled','active'],
             animation: ['hover', 'focus','active','group-hover'],
             transition : ['hover', 'focus','group-hover'],

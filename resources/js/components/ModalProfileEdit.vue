@@ -21,9 +21,7 @@
               Modifica il profilo
             </h3>
             <button class="p-1 ml-auto bg-transparent border-0 text-black opacity-90 float-right text-3xl leading-none font-semibold outline-none focus:outline-none" v-on:click="toggleModal()">
-              <span class=" text-gray-900 h-6 w-6 text-2xl block outline-none focus:outline-none">
-                ×
-              </span>
+                <i class="fas fa-times text-gray-900 h-6 w-6 text-2xl block outline-none focus:outline-none"></i>
             </button>
           </div>
           <!--body-->
@@ -37,11 +35,9 @@
                   <span class="block text-xs text-gray-500"
                     :class="{ 'text-red-500' : errors && errors.newAvatar  }"
                   >Formati accettati: .jpg,.png,.gif (massimo 10MB)</span>
-                    <span class="text-gray-900 h-6 w-6 text-xl block ml-32 -mb-6 outline-none focus:outline-none cursor-pointer"
-                      @click="removeAvatar=1"
-                    >
-                      ×
-                    </span>
+                      <i class="fas fa-times text-gray-900 h-6 w-6 text-lg block ml-32 -mb-6 outline-none focus:outline-none cursor-pointer"
+                        @click="removeAvatar=1"
+                      ></i>
                     <img class="flex object-cover w-36 h-36 mr-2 mt-2 rounded-full ring-2 ring-gray-900 items-center justify-center" :src="showedAvatar" alt="Avatar"
                       @click="addFiles()"
                     />

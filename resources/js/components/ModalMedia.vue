@@ -8,23 +8,37 @@
             </slot>
         </div>
 
-        <div v-if="showModal" class="fixed inset-0 z-50 bg-black opacity-90">
+        <div v-if="showModal" class="fixed inset-0 z-40 bg-black opacity-90">
         </div>
 
         <div v-if="showModal" class="fixed inset-0 z-50 w-full p-2 h-screen overflow-hidden flex justify-center items-center" >
-            <div class="container relative max-w-3xl max-h-screen lg:py-2 overflow-y-auto scrollbar-thin">
+            <div class="container relative max-w-3xl max-h-screen pb-2 md:py-2 overflow-y-auto scrollbar-thin">
                 
-                <div class="sticky -top-2 inline-flex w-full items-center justify-end md:justify-between h-8 bg-black bg-opacity-30 shadow px-2">
+                <div class="sticky -top-2 z-50 inline-flex w-full items-center justify-end md:justify-between h-8 bg-black bg-opacity-70 shadow px-2">
                     <p class="hidden md:block text-center text-white text-xl">Descrizione</p>
                     <button @click="toggleModal()" class="outline-none focus:outline-none">
-                        <svg class="fill-current text-white" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
-                            <path d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z">
-                            </path>
-                        </svg>
+                        <i class="fas fa-times fill-current text-white w-18 h-18"></i>
                     </button>
                 </div>
-                <div class="h-full w-full">
-                    <img alt="Imagine" class="object-contain" src="/assets/img/error_banner.jpg">
+                <div class="relative h-full w-full bg-gray-200">
+                    <img alt="Imagine" class="object-contain w-full" :src="curImage">  
+
+                    <div class=" absolute inset-0 container flex mx-auto">
+                        <div class="absolute left-0 top-0 flex items-center justify-center w-10 h-full bg-black bg-opacity-0 hover:bg-opacity-30 hover:shadow-xl cursor-pointer"
+                            v-if="imageIndex>0"
+                            @click="previousImage()"
+                        >
+                            <i class="fas fa-chevron-left text-white opacity-30 text-lg"></i>
+                        </div>
+
+                        <div class="absolute right-0 top-0 flex items-center justify-center w-10 h-full bg-black bg-opacity-0 hover:bg-opacity-30 hover:shadow-xl cursor-pointer"
+                            v-if="imageIndex<(images.length-1)"
+                            @click="nextImage()"
+                        >
+                            <i class="fas fa-chevron-right text-white opacity-30  text-lg"></i>
+                        </div>
+                    </div> 
+
                 </div>
 
             </div>
@@ -38,7 +52,16 @@
 
     export default{
 
-        props : ['clickableClass'],
+        props : {
+            clickableClass : {
+                type : String,
+                default : '',
+            },
+            images : {
+                type : Array,
+                required : true,
+            },
+        },
 
         data() {
         
@@ -46,15 +69,23 @@
 
                 showModal : false,
 
+                imageIndex : 0,
+
             }
 
         },
 
         computed : {
 
-            mergedClickableClass (){
+            mergedClickableClass(){
 
                 return this.clickableClass + ' cursor-pointer';
+
+            },
+
+            curImage(){
+
+                return this.images[this.imageIndex];
 
             },
 
@@ -64,7 +95,18 @@
 
             toggleModal(){
                 this.showModal= ! this.showModal;
-            }
+                this.imageIndex = 0;
+            },
+
+            nextImage(){
+                if(this.imageIndex<(this.images.length-1))
+                    this.imageIndex++; 
+            },
+
+            previousImage(){
+                if(this.imageIndex>0)
+                    this.imageIndex--;
+            },
 
         },
 
