@@ -20,8 +20,8 @@
           <x-slot name="title">
             Excelent Services
           </x-slot>
-          <x-slot name="icon">
-            <i class="fas fa-lightbulb text-xl "></i>
+          <x-slot name="thumbnail">
+            <img src="/assets/img/error_banner.jpg">
           </x-slot>
           Some quick example text to build on the card title and make up the bulk of the card's content.
         </x-features.card>
@@ -37,7 +37,7 @@
           <x-slot name="title">
             Launch time
           </x-slot>
-          <x-slot name="icon">
+          <x-slot name="thumbnail">
             <i class="fas fa-lightbulb text-xl"></i>
           </x-slot>
             Some quick example text to build on the card title and make up the bulk of the card's content.

@@ -18,4 +18,6 @@ Route::group([
     Route::crud('role', 'RoleCrudController');
     Route::crud('social', 'SocialCrudController');
     Route::crud('mail', 'MailCrudController');
+    Route::crud('template', 'TemplateCrudController');
+    Route::crud('template-element', 'TemplateElementCrudController');
 }); // this should be the absolute last line of this file

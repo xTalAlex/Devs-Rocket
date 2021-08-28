@@ -68,7 +68,7 @@ class MailCrudController extends CrudController
             'type'     => 'closure',
             'function' => function($entry) {
                 if($entry->attachment)
-                    return '<a href="'.($entry->attachment->getUrl()).'" target="_blank">'.$entry->attachment->file_name.'</a>';
+                    return '<a href="'.($entry->attachment).'" target="_blank">'.$entry->attachment->file_name.'</a>';
             }
         ]);
         CRUD::column('created_at');

@@ -25,14 +25,14 @@
 
                     <div class=" absolute inset-0 container flex mx-auto">
                         <div class="absolute left-0 top-0 flex items-center justify-center w-10 h-full bg-black bg-opacity-0 hover:bg-opacity-30 hover:shadow-xl cursor-pointer"
-                            v-if="imageIndex>0"
+                            
                             @click="previousImage()"
                         >
                             <i class="fas fa-chevron-left text-white opacity-30 text-lg"></i>
                         </div>
 
                         <div class="absolute right-0 top-0 flex items-center justify-center w-10 h-full bg-black bg-opacity-0 hover:bg-opacity-30 hover:shadow-xl cursor-pointer"
-                            v-if="imageIndex<(images.length-1)"
+                            
                             @click="nextImage()"
                         >
                             <i class="fas fa-chevron-right text-white opacity-30  text-lg"></i>
@@ -99,13 +99,16 @@
             },
 
             nextImage(){
-                if(this.imageIndex<(this.images.length-1))
-                    this.imageIndex++; 
+                // if(this.imageIndex<(this.images.length-1))
+                //     this.imageIndex++; 
+                this.imageIndex=(this.imageIndex+1)%this.images.length;
+                
             },
 
             previousImage(){
-                if(this.imageIndex>0)
-                    this.imageIndex--;
+                // if(this.imageIndex>0)
+                //     this.imageIndex--;
+                this.imageIndex=(this.imageIndex-1+this.images.length)%this.images.length;
             },
 
         },
