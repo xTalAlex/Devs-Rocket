@@ -50,7 +50,7 @@ class MailCrudController extends CrudController
     }
 
     /**
-     * Define what happens when the List operation is loaded.
+     * Define what happens when the Show operation is loaded.
      * 
      * @see  https://backpackforlaravel.com/docs/crud-operation-list-entries
      * @return void
@@ -68,7 +68,7 @@ class MailCrudController extends CrudController
             'type'     => 'closure',
             'function' => function($entry) {
                 if($entry->attachment)
-                    return '<a href="'.($entry->attachment).'" target="_blank">'.$entry->attachment->file_name.'</a>';
+                    return '<a href="'.($entry->attachment).'" target="_blank">Attachment</a>';
             }
         ]);
         CRUD::column('created_at');

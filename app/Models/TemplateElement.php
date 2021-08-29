@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
+use Illuminate\Support\Str;
 
 class TemplateElement extends Model implements  HasMedia
 {
@@ -45,5 +46,16 @@ class TemplateElement extends Model implements  HasMedia
 
     public function getThumbnailAttribute(){
         return $this->getFirstMediaUrl('image','thumb');
+    }
+
+    public function setImageAttribute($value){
+        if( $value && Str::startsWith($value,'data:') ){
+            $name='element_'.$this->id.'_image';
+            $ext=explode('/', explode(':', substr($value, 0, strpos($value, ';')))[1])[1];
+            $this->addMediaFromBase64($value)->usingName($name)->usingFileName($name.'.'.$ext)->toMediaCollection('image');
+        }
+        else{
+            $this->destroy($this->id);
+        }
     }
 }

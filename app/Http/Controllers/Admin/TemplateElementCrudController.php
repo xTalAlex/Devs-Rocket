@@ -39,7 +39,15 @@ class TemplateElementCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        
+        CRUD::column('id');
+        CRUD::column('title');
+        CRUD::addColumn([
+            'name'      => 'image', // The db column name
+            'label'     => 'Image', // Table column heading
+            'type'      => 'image',
+            'height' => '48px',
+            'width'  => '48px',
+        ]);
 
         /**
          * Columns can be defined using the fluent syntax or array syntax:
@@ -58,6 +66,17 @@ class TemplateElementCrudController extends CrudController
     {
         CRUD::setValidation(TemplateElementRequest::class);
 
+        CRUD::field('title');
+        CRUD::field('description');
+        CRUD::addField([
+            'label' => "Image",
+            'name' => "image",
+            'type' => 'image',
+            'crop' => true, // set to true to allow cropping, false to disable
+            'aspect_ratio' => 0, // omit or set to 0 to allow any aspect ratio
+            // 'disk'      => 's3_bucket', // in case you need to show images from a different disk
+            // 'prefix'    => 'uploads/images/profile_pictures/' // in case your db value is only the file name (no path), you can use this to prepend your path to the image src (in HTML), before it's shown to the user;
+        ]);
         
 
         /**
@@ -76,5 +95,35 @@ class TemplateElementCrudController extends CrudController
     protected function setupUpdateOperation()
     {
         $this->setupCreateOperation();
+    }
+
+    /**
+     * Define what happens when the Show operation is loaded.
+     * 
+     * @see  https://backpackforlaravel.com/docs/crud-operation-list-entries
+     * @return void
+     */
+    protected function setupShowOperation()
+    {
+        CRUD::column('id');
+        CRUD::column('title');
+        CRUD::column('description');
+        CRUD::addColumn([
+            'name'     => 'image',
+            'label'    => 'Image',
+            'type'     => 'closure',
+            'function' => function($entry) {
+                if($entry->image)
+                    return '<img src="'.($entry->thumbnail).'">';
+            }
+        ]);
+        CRUD::column('created_at');
+        CRUD::column('updated_at');
+
+        /**
+         * Columns can be defined using the fluent syntax or array syntax:
+         * - CRUD::column('price')->type('number');
+         * - CRUD::addColumn(['name' => 'price', 'type' => 'number']); 
+         */
     }
 }
