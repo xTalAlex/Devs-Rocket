@@ -49,10 +49,12 @@ class TemplateElement extends Model implements  HasMedia
     }
 
     public function setImageAttribute($value){
-        if( $value && Str::startsWith($value,'data:') ){
-            $name='element_'.$this->id.'_image';
-            $ext=explode('/', explode(':', substr($value, 0, strpos($value, ';')))[1])[1];
-            $this->addMediaFromBase64($value)->usingName($name)->usingFileName($name.'.'.$ext)->toMediaCollection('image');
+        if($value){
+            if( Str::startsWith($value,'data:') ){
+                $name='element_'.$this->id.'_image';
+                $ext=explode('/', explode(':', substr($value, 0, strpos($value, ';')))[1])[1];
+                $this->addMediaFromBase64($value)->usingName($name)->usingFileName($name.'.'.$ext)->toMediaCollection('image');
+            }
         }
         else{
             $this->destroy($this->id);

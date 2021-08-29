@@ -39,7 +39,15 @@ class TemplateCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        
+        CRUD::column('id');
+        CRUD::column('title');
+        CRUD::addColumn([
+            'name'      => 'thumbnail', // The db column name
+            'label'     => 'Thumbnail', // Table column heading
+            'type'      => 'image',
+            'height' => '48px',
+            'width'  => '48px',
+        ]);
 
         /**
          * Columns can be defined using the fluent syntax or array syntax:
@@ -58,8 +66,10 @@ class TemplateCrudController extends CrudController
     {
         CRUD::setValidation(TemplateRequest::class);
 
-        
-
+        CRUD::field('title');
+        CRUD::field('description');
+        CRUD::field('element')->type('select')->attribute('id');
+        CRUD::field('elements')->type('select2_multiple')->attribute('id');
         /**
          * Fields can be defined using the fluent syntax or array syntax:
          * - CRUD::field('price')->type('number');
@@ -76,5 +86,35 @@ class TemplateCrudController extends CrudController
     protected function setupUpdateOperation()
     {
         $this->setupCreateOperation();
+    }
+
+    /**
+     * Define what happens when the Show operation is loaded.
+     * 
+     * @see  https://backpackforlaravel.com/docs/crud-operation-list-entries
+     * @return void
+     */
+    protected function setupShowOperation()
+    {
+        CRUD::column('id');
+        CRUD::column('title');
+        CRUD::column('description');
+        CRUD::addColumn([
+            'name'     => 'template_element_id',
+            'label'    => 'Thumbnail',
+            'type'     => 'closure',
+            'function' => function($entry) { 
+                return '<a href="'.url('/admin/template-element/'.$entry->template_element_id.'/show').'"><img src="'.($entry->thumbnail).'"></a>';
+            }
+        ]);
+        CRUD::column('elements')->type('select_multiple');
+        CRUD::column('created_at');
+        CRUD::column('updated_at');
+
+        /**
+         * Columns can be defined using the fluent syntax or array syntax:
+         * - CRUD::column('price')->type('number');
+         * - CRUD::addColumn(['name' => 'price', 'type' => 'number']); 
+         */
     }
 }

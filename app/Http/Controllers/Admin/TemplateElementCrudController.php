@@ -114,7 +114,7 @@ class TemplateElementCrudController extends CrudController
             'type'     => 'closure',
             'function' => function($entry) {
                 if($entry->image)
-                    return '<img src="'.($entry->thumbnail).'">';
+                    return '<img src="'.($entry->image).'">';
             }
         ]);
         CRUD::column('created_at');

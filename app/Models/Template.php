@@ -17,7 +17,7 @@ class Template extends Model
     ];
 
     public function element(){
-        return $this->belongsTo(TemplateElement::class);
+        return $this->belongsTo(TemplateElement::class,'template_element_id');
     }
 
     public function elements(){

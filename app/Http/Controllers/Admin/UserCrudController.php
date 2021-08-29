@@ -77,6 +77,7 @@ class UserCrudController extends CrudController
             'type'      => 'image',
             'height' => '144px',
             'width'  => '144px',
+            'radius' => '9999px',
         ]);
         CRUD::column('name');
         CRUD::column('last_name');
