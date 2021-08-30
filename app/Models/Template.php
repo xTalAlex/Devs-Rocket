@@ -16,16 +16,16 @@ class Template extends Model
         'thumbnail',
     ];
 
-    public function element(){
+    public function thumbnail_element(){
         return $this->belongsTo(TemplateElement::class,'template_element_id');
     }
 
     public function elements(){
-        return $this->belongsToMany(TemplateElement::class,'templates_templates_elements');
+        return $this->hasMany(TemplateElement::class);
     }
 
     public function getThumbnailAttribute(){
-        return $this->element->thumbnail;
+        return $this->thumbnail_element ? $this->thumbnail_element->thumbnail : null;
     }
 
 }

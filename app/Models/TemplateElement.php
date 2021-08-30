@@ -27,17 +27,13 @@ class TemplateElement extends Model implements  HasMedia
             ->singleFile()
             ->acceptsMimeTypes(['image/jpeg','image/png','video/mp4']);
 
-        $this->addMediaConversion('thumb')
+        $this->addMediaConversion('thumbnail')
             ->width(256)
             ->height(256);
     }
 
     public function template(){
-        return $this->hasOne(Template::class);
-    }
-
-    public function templates(){
-        return $this->belongsToMany(Template::class,'templates_templates_elements');
+        return $this->belongsTo(Template::class);
     }
 
     public function getImageAttribute(){
@@ -45,7 +41,7 @@ class TemplateElement extends Model implements  HasMedia
     }
 
     public function getThumbnailAttribute(){
-        return $this->getFirstMediaUrl('image','thumb');
+        return $this->getFirstMediaUrl('image','thumbnail');
     }
 
     public function setImageAttribute($value){

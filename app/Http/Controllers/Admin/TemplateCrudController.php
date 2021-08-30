@@ -68,8 +68,7 @@ class TemplateCrudController extends CrudController
 
         CRUD::field('title');
         CRUD::field('description');
-        CRUD::field('element')->type('select')->attribute('id');
-        CRUD::field('elements')->type('select2_multiple')->attribute('id');
+
         /**
          * Fields can be defined using the fluent syntax or array syntax:
          * - CRUD::field('price')->type('number');
@@ -85,7 +84,50 @@ class TemplateCrudController extends CrudController
      */
     protected function setupUpdateOperation()
     {
-        $this->setupCreateOperation();
+        CRUD::setValidation(TemplateRequest::class);
+
+        CRUD::field('title');
+        CRUD::field('description');
+        CRUD::addField([  // Select
+            'label'     => "Thumbnail Element",
+            'type'      => 'select',
+            'name'      => 'template_element_id', // the db column for the foreign key
+         
+            // optional 
+            // 'entity' should point to the method that defines the relationship in your Model
+            // defining entity will make Backpack guess 'model' and 'attribute'
+            'entity'    => 'thumbnail_element', 
+         
+            // optional - manually specify the related model and attribute
+            'model'     => "App\Models\TemplateElement", // related model
+            'attribute' => 'title', // foreign key attribute that is shown to user
+         
+            // optional - force the related options to be a custom query, instead of all();
+            'options'   => (function ($query) {
+                 return $query->where('template_id', $this->crud->entry->id)->get();
+             }), //  you can use this to filter the results show in the select
+         ],);
+        //  CRUD::addField([  // Select
+        //     'label'     => "Elements",
+        //     'type'      => 'select2_multiple',
+        //     'name'      => 'templated_element_id', // the db column for the foreign key
+         
+        //     // optional 
+        //     // 'entity' should point to the method that defines the relationship in your Model
+        //     // defining entity will make Backpack guess 'model' and 'attribute'
+        //     'entity'    => 'elements', 
+         
+        //     // optional - manually specify the related model and attribute
+        //     'model'     => "App\Models\TemplateElement", // related model
+        //     'attribute' => 'title', // foreign key attribute that is shown to user
+
+        //     'pivot' =>false,
+         
+        //     // optional - force the related options to be a custom query, instead of all();
+        //     'options'   => (function ($query) {
+        //          return $query->where('template_id', $this->crud->entry->id)->orWhere('template_id', null)->get();
+        //      }), //  you can use this to filter the results show in the select
+        //  ],);
     }
 
     /**
@@ -103,8 +145,11 @@ class TemplateCrudController extends CrudController
             'name'     => 'template_element_id',
             'label'    => 'Thumbnail',
             'type'     => 'closure',
-            'function' => function($entry) { 
-                return '<a href="'.url('/admin/template-element/'.$entry->template_element_id.'/show').'"><img src="'.($entry->thumbnail).'"></a>';
+            'function' => function($entry) {
+                if($entry->thumbnail) 
+                    return '<a href="'.url('/admin/template-element/'.$entry->thumbnail_element->id.'/show').'"><img src="'.($entry->thumbnail).'"></a>';
+                else
+                    return '<span>No Thumbnail</span>'; 
             }
         ]);
         CRUD::column('elements')->type('select_multiple');

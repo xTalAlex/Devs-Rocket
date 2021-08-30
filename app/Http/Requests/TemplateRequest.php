@@ -28,7 +28,7 @@ class TemplateRequest extends FormRequest
         return [
             'title' => 'required|max:255',
             'description' => 'required|max:300',
-            'element' => 'required',
+            'template_element_id' => 'nullable|exists:template_elements,id',
         ];
     }
 

@@ -39,8 +39,27 @@ class TemplateElementCrudController extends CrudController
      */
     protected function setupListOperation()
     {
+        $template_titles=\App\Models\Template::all()->pluck('title','id');
+        $options=array( 0 => 'None' );
+        foreach($template_titles as $id=>$title){
+            array_push($options,$title);
+        }
+        CRUD::addFilter([
+            'name'  => 'template',
+            'type'  => 'dropdown',
+            'label' => 'Template'
+          ], 
+          $options,
+          function($value) { // if the filter is active
+            if($value==0)
+                $this->crud->addClause('where','template_id', null);
+            else
+                $this->crud->addClause('where', 'template_id', $value);
+        });
+
         CRUD::column('id');
         CRUD::column('title');
+        CRUD::column('template')->attribute('title');
         CRUD::addColumn([
             'name'      => 'image', // The db column name
             'label'     => 'Image', // Table column heading
@@ -68,6 +87,7 @@ class TemplateElementCrudController extends CrudController
 
         CRUD::field('title');
         CRUD::field('description');
+        CRUD::field('template_id')->type('select');
         CRUD::addField([
             'label' => "Image",
             'name' => "image",
@@ -109,12 +129,25 @@ class TemplateElementCrudController extends CrudController
         CRUD::column('title');
         CRUD::column('description');
         CRUD::addColumn([
+            'name'     => 'template',
+            'label'    => 'Template',
+            'type'     => 'closure',
+            'function' => function($entry) {
+                if($entry->template)
+                    return '<a href="http://localhost:8000/admin/template/'.$entry->template->id.'/show">'.$entry->template->title.'</a>';
+                else
+                    return '<span>-</span>';
+            }
+        ]);
+        CRUD::addColumn([
             'name'     => 'image',
             'label'    => 'Image',
             'type'     => 'closure',
             'function' => function($entry) {
                 if($entry->image)
                     return '<img src="'.($entry->image).'">';
+                else
+                    return '<span>-</span>';
             }
         ]);
         CRUD::column('created_at');

@@ -26,6 +26,7 @@ class TemplateElementRequest extends FormRequest
     public function rules()
     {
         return [
+            'template' => 'nullable|exists:templates',
             'title' => 'required|max:255',
             'description' => 'required|max:300',
             'image' => 'required',

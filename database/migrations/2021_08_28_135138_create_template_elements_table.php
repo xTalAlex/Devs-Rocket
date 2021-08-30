@@ -15,9 +15,20 @@ class CreateTemplateElementsTable extends Migration
     {
         Schema::create('template_elements', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('template_id')->nullable();
             $table->string('title');
             $table->text('description');
-            $table->timestamps();
+            $table->timestamps();    
+            
+            $table->foreign('template_id')->references('id')->on('templates')
+                ->onUpdate('cascade')->onDelete('set null');
+        });
+
+        Schema::table('templates', function (Blueprint $table) {
+            $table->unsignedBigInteger('template_element_id')->nullable(); 
+        
+            $table->foreign('template_element_id')->references('id')->on('template_elements')
+                ->onUpdate('cascade')->onDelete('set null');
         });
     }
 
@@ -28,6 +39,10 @@ class CreateTemplateElementsTable extends Migration
      */
     public function down()
     {
+        Schema::table('templates', function($table) {
+            $table->dropForeign('templates_template_element_id_foreign');
+            $table->dropColumn('template_element_id');
+         });
         Schema::dropIfExists('template_elements');
     }
 }
