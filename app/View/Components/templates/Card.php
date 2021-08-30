@@ -3,17 +3,19 @@
 namespace App\View\Components\features;
 
 use Illuminate\View\Component;
+use App\Models\Template;
 
 class Card extends Component
 {
+    public $template;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(Template $template)
     {
-        //
+        $this->template=$template;
     }
 
     /**
@@ -23,6 +25,6 @@ class Card extends Component
      */
     public function render()
     {
-        return view('components.features.card');
+        return view('components.templates.card');
     }
 }

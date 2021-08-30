@@ -16,32 +16,18 @@
 
       <div class="flex flex-wrap mt-12 justify-center">
 
-        <x-features.card>
-          <x-slot name="title">
-            Excelent Services
-          </x-slot>
-          <x-slot name="thumbnail">
-            <img src="/assets/img/error_banner.jpg">
-          </x-slot>
-          Some quick example text to build on the card title and make up the bulk of the card's content.
-        </x-features.card>
-
-        <x-features.card>
-          <x-slot name="title">
-            Grow your market
-        </x-slot>
-            Some quick example text to build on the card title and make up the bulk of the card's content.
-        </x-features.card>
-
-        <x-features.card>
-          <x-slot name="title">
-            Launch time
-          </x-slot>
-          <x-slot name="thumbnail">
-            <i class="fas fa-lightbulb text-xl"></i>
-          </x-slot>
-            Some quick example text to build on the card title and make up the bulk of the card's content.
-        </x-features.card>
+        @if($templates->count())
+          @foreach($templates as $template)
+            <x-templates.card 
+              :template="$template"
+            >
+            </x-templates.card>
+          @endforeach
+        @else
+            <p class="text-red-500">
+              Non c'è nessun esempio! Prova a ricaricare la pagina.
+            </p>
+        @endif
 
       </div>
 

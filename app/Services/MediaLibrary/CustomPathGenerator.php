@@ -22,7 +22,7 @@ class CustomPathGenerator implements PathGenerator
                 break;
             
             case TemplateElement::class:
-                return 'templates_elements'.DIRECTORY_SEPARATOR.$media->id.DIRECTORY_SEPARATOR;
+                return 'templates_elements'.DIRECTORY_SEPARATOR.$media->model_id.DIRECTORY_SEPARATOR.$media->id.DIRECTORY_SEPARATOR;
                 break;
                 
             default:

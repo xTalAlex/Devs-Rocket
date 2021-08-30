@@ -14,26 +14,28 @@
         <div v-if="showModal" class="fixed inset-0 z-50 w-full p-2 h-screen overflow-hidden flex justify-center items-center" >
             <div class="container relative max-w-3xl max-h-screen pb-2 md:py-2 overflow-y-auto scrollbar-thin">
                 
-                <div class="sticky -top-2 z-50 inline-flex w-full items-center justify-end md:justify-between h-8 bg-black bg-opacity-70 shadow px-2">
-                    <p class="hidden md:block text-center text-white text-xl">Descrizione</p>
+                <div class="sticky -top-2 z-50 inline-flex w-full items-center justify-end md:justify-between bg-black bg-opacity-70 shadow px-2 mb-2">
+                    <p class="hidden md:block text-center text-white text-md opacity-80">
+                        <span class="font-black">{{ curElement.title }}</span> - {{ curElement.description }}
+                    </p>
                     <button @click="toggleModal()" class="outline-none focus:outline-none">
                         <i class="fas fa-times fill-current text-white w-18 h-18"></i>
                     </button>
                 </div>
                 <div class="relative h-full w-full bg-gray-200">
-                    <img alt="Imagine" class="object-contain w-full" :src="curImage">  
+                    <img alt="Immagine" class="object-contain w-full" :src="curElement.image">  
 
                     <div class=" absolute inset-0 container flex mx-auto">
                         <div class="absolute left-0 top-0 flex items-center justify-center w-10 h-full bg-black bg-opacity-0 hover:bg-opacity-30 hover:shadow-xl cursor-pointer"
                             
-                            @click="previousImage()"
+                            @click="previousElement()"
                         >
                             <i class="fas fa-chevron-left text-white opacity-30 text-lg"></i>
                         </div>
 
                         <div class="absolute right-0 top-0 flex items-center justify-center w-10 h-full bg-black bg-opacity-0 hover:bg-opacity-30 hover:shadow-xl cursor-pointer"
                             
-                            @click="nextImage()"
+                            @click="nextElement()"
                         >
                             <i class="fas fa-chevron-right text-white opacity-30  text-lg"></i>
                         </div>
@@ -57,7 +59,7 @@
                 type : String,
                 default : '',
             },
-            images : {
+            elements : {
                 type : Array,
                 required : true,
             },
@@ -69,7 +71,7 @@
 
                 showModal : false,
 
-                imageIndex : 0,
+                elementIndex : 0,
 
             }
 
@@ -78,16 +80,12 @@
         computed : {
 
             mergedClickableClass(){
-
                 return this.clickableClass + ' cursor-pointer';
-
             },
 
-            curImage(){
-
-                return this.images[this.imageIndex];
-
-            },
+            curElement(){
+                return this.elements[this.elementIndex];
+            }
 
         },
 
@@ -95,20 +93,15 @@
 
             toggleModal(){
                 this.showModal= ! this.showModal;
-                this.imageIndex = 0;
+                this.elementIndex = 0;
             },
 
-            nextImage(){
-                // if(this.imageIndex<(this.images.length-1))
-                //     this.imageIndex++; 
-                this.imageIndex=(this.imageIndex+1)%this.images.length;
-                
+            nextElement(){
+                this.elementIndex=(this.elementIndex+1)%this.elements.length;
             },
 
-            previousImage(){
-                // if(this.imageIndex>0)
-                //     this.imageIndex--;
-                this.imageIndex=(this.imageIndex-1+this.images.length)%this.images.length;
+            previousElement(){
+                this.elementIndex=(this.elementIndex-1+this.elements.length)%this.elements.length;
             },
 
         },
