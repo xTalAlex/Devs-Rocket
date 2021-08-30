@@ -24,7 +24,7 @@
             </x-templates.card>
           @endforeach
         @else
-            <p class="text-red-500">
+            <p class="text-red-500 mb-4">
               Non c'è nessun esempio! Prova a ricaricare la pagina.
             </p>
         @endif

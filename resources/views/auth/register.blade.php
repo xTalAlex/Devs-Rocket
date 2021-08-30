@@ -37,8 +37,8 @@
                 --}}
 
                 <div id="g_id_onload"
-                    data-client_id="239666970121-ndbj5jbouevql1lglth17cqkff4029f8.apps.googleusercontent.com"
-                    data-login_uri="http://localhost:8000/register"
+                    data-client_id="{{ env('GOOGLE_CLIENT') }}"
+                    data-login_uri="{{ route('register') }}"
                     data-_token="{{ csrf_token() }}"
                     data-auto_prompt="false"
                 >
