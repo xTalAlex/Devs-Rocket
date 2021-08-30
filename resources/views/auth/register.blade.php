@@ -16,7 +16,6 @@
 
                 <div class="text-center mb-3">
                   <h6 class="text-white text-xs font-bold">
-                      CLIENT {{ env('GOOGLE_CLIENT') }}
                     <x-auth-label for="name" class="block uppercase text-xs font-bold" :value="__('Sign in with')" />
                   </h6>
                 </div>
