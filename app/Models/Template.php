@@ -25,7 +25,12 @@ class Template extends Model
     }
 
     public function getThumbnailAttribute(){
-        return $this->thumbnail_element ? $this->thumbnail_element->thumbnail : null;
+        if($this->thumbnail_element)
+            return $this->thumbnail_element->thumbnail;
+        elseif($this->elements()->exists()) 
+            return $this->elements()->first()->thumbnail;
+        else
+            return null;
     }
 
 }
