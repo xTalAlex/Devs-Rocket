@@ -1,8 +1,6 @@
-require('alpinejs');
-
 require('./bootstrap');
 
-import { createApp } from 'vue'
+import { createApp } from 'vue';
 
 import ModalProfileEdit from './components/ModalProfileEdit.vue';
 import ModalMedia from './components/ModalMedia.vue';
