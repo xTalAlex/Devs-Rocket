@@ -91,9 +91,14 @@ class UserController extends Controller
         ]);
 
         if($validated['newAvatar'] ?? false){
-            $name=auth()->user()->id.'_avatar';
-            $ext=$validated['newAvatar']->getClientOriginalExtension();
-            auth()->user()->addMediaFromRequest('newAvatar')->usingName($name)->usingFileName($name.'.'.$ext)->toMediaCollection('avatar');
+            try{
+                $name=auth()->user()->id.'_avatar';
+                $ext=$validated['newAvatar']->getClientOriginalExtension();
+                auth()->user()->addMediaFromRequest('newAvatar')->usingName($name)->usingFileName($name.'.'.$ext)->toMediaCollection('avatar');
+            }
+            catch(\Throwable $e){
+                report($e);
+            }
         }
         if($validated['removeAvatar']){
             auth()->user()->clearMediaCollection('avatar'); 
