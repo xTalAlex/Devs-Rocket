@@ -15,7 +15,7 @@
             <div class="container relative max-w-3xl max-h-screen pb-2 md:py-2 overflow-y-auto scrollbar-thin">
                 
                 <div class="sticky -top-2 z-50 inline-flex w-full items-center justify-end md:justify-between bg-black bg-opacity-70 shadow px-2 mb-2">
-                    <p class="hidden md:block text-center text-white text-md opacity-80">
+                    <p class="hidden md:block text-left text-white text-md opacity-80">
                         <span class="font-black">{{ curElement.title }}</span> - {{ curElement.description }}
                     </p>
                     <button @click="toggleModal()" class="outline-none focus:outline-none">
