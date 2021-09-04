@@ -1,6 +1,6 @@
 <?php
 
-namespace App\View\Components\features;
+namespace App\View\Components\Templates;
 
 use Illuminate\View\Component;
 use App\Models\Template;
