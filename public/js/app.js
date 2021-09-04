@@ -21530,7 +21530,8 @@ var _hoisted_9 = {
   "class": "relative h-full w-full bg-gray-200"
 };
 var _hoisted_10 = {
-  "class": " absolute inset-0 container flex mx-auto"
+  key: 0,
+  "class": "absolute inset-0 container flex mx-auto"
 };
 
 var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("i", {
@@ -21570,7 +21571,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     src: $options.curElement.image
   }, null, 8
   /* PROPS */
-  , ["src"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
+  , ["src"]), $props.elements.length > 1 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
     "class": "absolute left-0 top-0 flex items-center justify-center w-10 h-full bg-black bg-opacity-0 hover:bg-opacity-30 hover:shadow-xl cursor-pointer",
     onClick: _cache[3] || (_cache[3] = function ($event) {
       return $options.previousElement();
@@ -21580,7 +21581,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     onClick: _cache[4] || (_cache[4] = function ($event) {
       return $options.nextElement();
     })
-  }, [_hoisted_12])])])])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]);
+  }, [_hoisted_12])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]);
 }
 
 /***/ }),

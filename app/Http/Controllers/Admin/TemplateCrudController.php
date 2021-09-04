@@ -146,10 +146,10 @@ class TemplateCrudController extends CrudController
             'label'    => 'Thumbnail',
             'type'     => 'closure',
             'function' => function($entry) {
-                if($entry->thumbnail) 
+                if($entry->thumbnail_element) 
                     return '<a href="'.url('/admin/template-element/'.$entry->thumbnail_element->id.'/show').'"><img src="'.($entry->thumbnail).'"></a>';
                 else
-                    return '<span>No Thumbnail</span>'; 
+                    return '<span>Default Thumbnail</span>';
             }
         ]);
         CRUD::column('elements')->type('select_multiple');

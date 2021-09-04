@@ -25,7 +25,9 @@
                 <div class="relative h-full w-full bg-gray-200">
                     <img alt="Immagine" class="object-contain w-full" :src="curElement.image">  
 
-                    <div class=" absolute inset-0 container flex mx-auto">
+                    <div class="absolute inset-0 container flex mx-auto"
+                        v-if="elements.length>1"
+                    >
                         <div class="absolute left-0 top-0 flex items-center justify-center w-10 h-full bg-black bg-opacity-0 hover:bg-opacity-30 hover:shadow-xl cursor-pointer"
                             
                             @click="previousElement()"
