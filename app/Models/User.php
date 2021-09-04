@@ -68,16 +68,17 @@ class User extends Authenticatable implements  HasMedia, MustVerifyEmail
 
     public function registerMediaCollections(Media $media = null): void
     {
-        $this->addMediaConversion('thumb')
-              ->width(144)
-              ->height(144);
-
         $this->addMediaCollection('avatar')
             ->singleFile()
+            ->useDisk('s3')
             //->withResponsiveImages()
             ->acceptsMimeTypes(['image/jpeg','image/png','image/gif'])
             ->useFallbackUrl('/assets/img/no_avatar.png')
             ->useFallbackPath(public_path('/assets/img/no_avatar.png'));
+
+        $this->addMediaConversion('thumb')
+            ->width(144)
+            ->height(144);
     }
 
     public function role(){

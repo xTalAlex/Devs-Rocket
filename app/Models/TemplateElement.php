@@ -23,7 +23,8 @@ class TemplateElement extends Model implements  HasMedia
 
     public function registerMediaCollections(Media $media = null): void
     {
-        $this->addMediaCollection('image','local')
+        $this->addMediaCollection('image')
+            ->useDisk('s3')
             ->singleFile()
             ->acceptsMimeTypes(['image/jpeg','image/png','video/mp4']);
 

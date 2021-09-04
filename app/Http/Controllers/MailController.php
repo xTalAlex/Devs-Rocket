@@ -60,7 +60,7 @@ class MailController extends Controller
             if($validated['attachment'] ?? false){
                 try{
                     $name=$validated['attachment']->getClientOriginalName();
-                    $mail->addMediaFromRequest('attachment')->usingFileName($name)->toMediaCollection('attachment','local');
+                    $mail->addMediaFromRequest('attachment')->usingFileName($name)->toMediaCollection('attachment');
                 }
                 catch (\Exception $e) {
                     $notification_type="warning";

@@ -14,19 +14,19 @@ class CustomPathGenerator implements PathGenerator
         switch($media->model_type){
 
             case User::class:
-                return 'users'.DIRECTORY_SEPARATOR.$media->model_id.DIRECTORY_SEPARATOR.'avatar'.DIRECTORY_SEPARATOR.$media->id.DIRECTORY_SEPARATOR;
+                return 'users/'.$media->model_id.'/avatar/'.$media->id.'/';
                 break;
             
             case Mail::class:
-                return 'emails'.DIRECTORY_SEPARATOR.$media->model_id.DIRECTORY_SEPARATOR.'attachments'.DIRECTORY_SEPARATOR.$media->id.DIRECTORY_SEPARATOR;
+                return 'emails/'.$media->model_id.'/attachments/'.$media->id.'/';
                 break;
             
             case TemplateElement::class:
-                return 'templates_elements'.DIRECTORY_SEPARATOR.$media->model_id.DIRECTORY_SEPARATOR.$media->id.DIRECTORY_SEPARATOR;
+                return 'templates_elements/'.$media->model_id.'/'.$media->id.'/';
                 break;
                 
             default:
-                return $media->id.DIRECTORY_SEPARATOR;
+                return $media->id.'/';
         }   
     }
 
