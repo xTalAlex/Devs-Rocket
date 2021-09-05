@@ -22,7 +22,7 @@
                 <x-label
                   class="block uppercase text-gray-700 text-xs font-bold mb-2"
                   for="name"
-                  >Nome  
+                  >Nome
                   @error('name')
                     <span class="alert alert-danger text-red-500 text-xs font-semibold">{{ $message }}</span>
                   @enderror
@@ -33,7 +33,7 @@
                     @error('name') border-2 border-red-500 @enderror"
                   name="name"
                   placeholder="Il tuo nome"
-                  value="{{auth()->user() ? auth()->user()->full_name : null }}"
+                  value="{{auth()->user() ? auth()->user()->full_name : ( old('name') ? old('name') : null ) }}"
                   style="transition: all 0.15s ease 0s;"
                   required
                   @error('name') autofocus @enderror
@@ -55,7 +55,7 @@
                     @error('email') border-2 border-red-500 @enderror"
                   name="email"
                   placeholder="Email"
-                  value="{{auth()->user() ? auth()->user()->email : null }}"
+                  value="{{auth()->user() ? auth()->user()->email : ( old('email') ? old('email') : null ) }}"
                   style="transition: all 0.15s ease 0s;"
                   required
                   @error('email') autofocus @enderror
@@ -82,7 +82,7 @@
                   required
                   @error('message') autofocus @enderror
                   @error('attachment') autofocus @enderror
-                ></textarea>
+                >{{ old('message') ? old('message') : null }}</textarea>
               </div>
 
               <div class="relative w-full mb-3">
