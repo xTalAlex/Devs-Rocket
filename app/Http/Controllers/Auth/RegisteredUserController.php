@@ -61,15 +61,19 @@ class RegisteredUserController extends Controller
             $password=Hash::make($request->password);
         }
 
-        $user = User::firstOrCreate([
-            'email' => $email,
-        ],[
-            'name' => $name,
-            'last_name' => $last_name,
-            'password' => $password,
-        ]);
+        $user=User::where('email',$email)->first();
 
-        event(new Registered($user));
+        if(!$user){
+            $user = User::create([
+                'email' => $email,
+            ],[
+                'name' => $name,
+                'last_name' => $last_name,
+                'password' => $password,
+            ]);
+
+            event(new Registered($user));
+        }
 
         Auth::login($user);
 
