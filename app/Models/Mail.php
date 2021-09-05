@@ -32,6 +32,6 @@ class Mail extends Model implements  HasMedia
     }
 
     public function getAttachmentAttribute(){
-        return $this->getFirstMediaUrl('attachment');
+        return $this->getFirstMedia('attachment');
     }
 }
