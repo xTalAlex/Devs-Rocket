@@ -58,10 +58,10 @@
             </div>
 
             <!-- Name -->
-            <div class="mt-4 text-gray-200 focus-within:text-red-500">
+            <div class="mt-4 text-gray-200 focus-within:text-green-400">
                 <x-auth-label for="name" class="block uppercase text-xs font-bold" :value="__('Name')" />
 
-                <x-auth-input id="name" class="block bg-transparent mt-2 w-full focus:ring focus:ring-red-500 text-red-200 focus:bg-red-500" type="text" name="name" :value="old('name')" required autofocus />
+                <x-auth-input id="name" class="block bg-transparent mt-2 w-full focus:ring focus:ring-green-400 text-green-200 focus:bg-green-400" type="text" name="name" :value="old('name')" required autofocus />
             </div>
 
             <!-- Last Name -->
@@ -72,10 +72,10 @@
             </div>
 
             <!-- Email Address -->
-            <div class="mt-6 text-gray-200 focus-within:text-green-400">
+            <div class="mt-6 text-gray-200 focus-within:text-red-500">
                 <x-auth-label for="email" class="block uppercase text-xs font-bold" :value="__('Email')" />
 
-                <x-auth-input id="email" class="block mt-2 w-full focus:ring focus:ring-green-400 text-green-200 focus:bg-green-400" type="email" name="email" :value="old('email')" required />
+                <x-auth-input id="email" class="block mt-2 w-full focus:ring focus:ring-red-500 text-red-200 focus:bg-red-500" type="email" name="email" :value="old('email')" required />
             </div>
 
             <!-- Password -->
