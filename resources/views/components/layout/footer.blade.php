@@ -47,10 +47,10 @@
       </div>
     </div>
 
-    <div class="w-full lg:w-6/12 px-4">
+    <div class="w-full lg:w-6/12 px-4 mt-4 lg:mt-0">
       <div class="flex flex-wrap items-top mb-6">
         
-        <div class="w-full lg:w-4/12 px-4 ml-auto mt-4 lg:mt-0">
+        <div class="w-full sm:w-6/12 lg:w-4/12 px-4 ml-auto mt-4 lg:mt-0">
           <span
             class="block uppercase text-gray-900 text-sm font-extrabold mb-2"
             >Link Utili</span
@@ -87,7 +87,7 @@
           </ul>
         </div>
         
-        <div class="w-full lg:w-4/12 px-4 mt-4 lg:mt-0">
+        <div class="w-full sm:w-6/12 lg:w-4/12 px-4 mt-4 lg:mt-0">
           <span
             class="block uppercase text-gray-900 text-sm font-extrabold mb-2"
             >Altre Risorse</span
@@ -123,6 +123,7 @@
             </li>
           </ul>
         </div>
+
       </div>
     </div>
 
