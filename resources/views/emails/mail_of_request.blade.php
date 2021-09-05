@@ -5,7 +5,7 @@
 {{ $mail->message }}
 
 @if($mail->attachment)
-Controlla il file allegato!
+Questa email ha un allegato!
 @endif
 
 @endcomponent
