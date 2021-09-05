@@ -66,7 +66,6 @@ class RegisteredUserController extends Controller
         if(!$user){
             $user = User::create([
                 'email' => $email,
-            ],[
                 'name' => $name,
                 'last_name' => $last_name,
                 'password' => $password,

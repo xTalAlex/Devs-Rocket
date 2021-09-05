@@ -83,7 +83,7 @@
                         <span
                         class="text-xl font-bold block uppercase tracking-wide text-gray-700"
                         >Reclutato Il</span>
-                        <span class="text-sm text-gray-500">{{ $user->created_at->format('j F y') }}</span>
+                        <span class="text-sm text-gray-500">{{ $user->created_at->format('j F Y') }}</span>
                     </div>
                     
                     </div>
