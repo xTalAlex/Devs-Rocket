@@ -22,7 +22,7 @@ class Mail extends Model implements  HasMedia
     public function registerMediaCollections(Media $media = null): void
     {
         $this->addMediaCollection('attachment')
-            ->useDisk(env('FILESYSTEM_DRIVER'))
+            ->useDisk(config('filesystems.default'))
             ->singleFile()
             ->acceptsMimeTypes(['image/jpeg','application/pdf','application/zip']);
     }

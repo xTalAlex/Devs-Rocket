@@ -96,12 +96,12 @@
                 </x-label>              
                 <div class="flex w-64 items-center justify-center bg-gray-900  @error('attachment') border-2 border-red-500 @enderror">
                   <file-uploader
-                    :accept="'image/jpeg,.pdf,.zip'"
+                    :accept="'image/jpeg,image/png,.pdf,.zip'"
                     :name="'attachment'"
                     :label="'Allega un file'"
                   ></file-uploader>
                 </div> 
-                <span class="block text-xs text-gray-500">Formati accettati: .jpeg,.pdf,.zip (massimo 10MB)</span>
+                <span class="block text-xs text-gray-500">Formati accettati: .jpeg,.png,.pdf,.zip (massimo 10MB)</span>
               </div>
 
               <div class="text-center mt-6">

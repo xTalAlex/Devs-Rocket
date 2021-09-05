@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('home',[
-        'developers' => \App\Models\User::developer()->get(),
+        'developers' => \App\Models\User::developer()->orderBy('id')->get(),
         'templates' => \App\Models\Template::whereHas('elements')->paginate(3),
     ]);
 })->name('home');

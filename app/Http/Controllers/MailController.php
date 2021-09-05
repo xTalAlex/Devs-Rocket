@@ -44,7 +44,7 @@ class MailController extends Controller
                 'name' => 'required|string|alpha_spaces',
                 'email' => 'required|email',
                 'message' => 'required|string|max:1000',
-                'attachment' => 'nullable|mimetypes:application/zip,image/jpeg,application/pdf|max:10240',
+                'attachment' => 'nullable|mimetypes:application/zip,image/jpeg,image/png,application/pdf|max:10240',
             ]);
 
         $user=\App\Models\User::where('email',$validated['email'])->first();
@@ -68,8 +68,8 @@ class MailController extends Controller
                 }
             }
 
-            if(env('MAIL_FROM_ADDRESS', false))
-                Mail::to(env('MAIL_FROM_ADDRESS'))->send(new MailOfRequest($mail));
+            if(config('mail.from'))
+                Mail::to(config('mail.from')->send(new MailOfRequest($mail));
         }
         else{
             $notification_type="error";

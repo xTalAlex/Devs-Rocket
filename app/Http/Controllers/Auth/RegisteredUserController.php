@@ -34,7 +34,7 @@ class RegisteredUserController extends Controller
     public function store(Request $request)
     {
         if(request('credential')){
-            $gClient = new \Google_Client(['client_id' => env('GOOGLE_CLIENT')]);
+            $gClient = new \Google_Client(['client_id' => config('services.google.client')]);
             $payload = $gClient->verifyIdToken($request['credential']);
             if ($payload) {
                 $name=$payload['given_name'];
