@@ -2,7 +2,7 @@
 
     <x-separator color="gray-900"></x-separator>
 
-    <div class="container mx-auto px-4 pt-8 lg:pt-24 lg:pb-64">
+    <div class="container mx-auto px-4 pt-8 lg:pt-24 pb-24 lg:pb-64">
 
       <div class="flex flex-wrap text-center justify-center">
         <div class="w-full lg:w-6/12 px-4">
@@ -14,7 +14,7 @@
         </div>
       </div>
 
-      <div class="flex flex-wrap mt-12 justify-center">
+      <div class="flex flex-wrap lg:mt-12 justify-center space-x-2">
 
         @if($templates->count())
           @foreach($templates as $template)

@@ -8,14 +8,16 @@
             </slot>
         </div>
 
-        <div v-if="showModal" class="fixed inset-0 z-40 bg-black opacity-90">
+        <div v-if="showModal" class="fixed inset-0 z-40 h-screen bg-black opacity-90"
+            @click="toggleModal()"
+        >
         </div>
 
         <div v-if="showModal" class="fixed inset-0 z-50 w-full p-2 h-screen overflow-hidden flex justify-center items-center" >
-            <div class="container relative max-w-3xl max-h-screen pb-2 md:py-2 overflow-y-auto scrollbar-thin">
+            <div class="container relative max-w-3xl max-h-screen pb-2 py-2 overflow-y-auto scrollbar-thin">
                 
-                <div class="sticky -top-2 z-50 inline-flex w-full items-center justify-end md:justify-between bg-black bg-opacity-70 shadow px-2 mb-2">
-                    <p class="hidden md:block text-left text-white text-md opacity-80">
+                <div class="sticky -top-2 z-50 inline-flex w-full items-start justify-end sm:justify-between bg-black bg-opacity-70 shadow px-2 pb-2">
+                    <p class="hidden sm:block text-left text-white text-md opacity-80 break-all mr-4 p-2">
                         <span class="font-black">{{ curElement.title }}</span> - {{ curElement.description }}
                     </p>
                     <button @click="toggleModal()" class="outline-none focus:outline-none">

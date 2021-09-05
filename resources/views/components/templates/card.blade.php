@@ -1,7 +1,7 @@
-<div class="w-full lg:w-3/12 px-4 text-center">
+<div class="w-full lg:w-3/12 px-4 text-center mt-12 rounded-lg lg:mt-0 hover:shadow-lg ">
 
     <modal-media 
-        clickable-class="flex w-full h-64  items-center justify-center mx-auto p-8"
+        clickable-class="flex w-full h-64  items-center justify-center mx-auto p-6"
         :elements="{{ $template->elements }}"
     >
 
@@ -9,7 +9,7 @@
 
     </modal-media>
 
-    <h5 class="text-xl mt-5 font-semibold text-white">
+    <h5 class="text-xl mt-2 font-semibold text-white">
       {{ $template->title }}
     </h5>
 
