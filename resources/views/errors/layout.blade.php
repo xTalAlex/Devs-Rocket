@@ -1,68 +1,33 @@
-@extends(backpack_user() && (Str::startsWith(\Request::path(), config('backpack.base.route_prefix'))) ? 'backpack::layouts.top_left' : 'backpack::layouts.plain')
-{{-- show error using sidebar layout if looged in AND on an admin page; otherwise use a blank page --}}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#000000" />
 
-@php
-  $title = 'Error '.$error_number;
-@endphp
+        <title>@yield('title')</title>
+        <link rel="shortcut icon" href="./assets/img/favicon.ico" />
+        <link
+        rel="apple-touch-icon"
+        sizes="76x76"
+        href="./assets/img/apple-icon.png"
+        />
 
-@section('after_styles')
-  <style>
-    .error_banner{
-      background-image : url('assets/img/error_banner.jpg');
-      background-repeat : no-repeat;
-      width:100% ; 
-      height:100%;
-    }
-    .error_number {
-      font-size: 156px;
-      font-weight: 600;
-      line-height: 100px;
-    }
-    .error_number small {
-      font-size: 56px;
-      font-weight: 700;
-    }
+        <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
-    .error_number hr {
-      margin-top: 60px;
-      margin-bottom: 0;
-      width: 50px;
-    }
-
-    .error_title {
-      margin-top: 40px;
-      font-size: 36px;
-      font-weight: 400;
-    }
-
-    .error_description {
-      font-size: 24px;
-      font-weight: 400;
-    }
-  </style>
-@endsection
-
-@section('content')
-<div class="row">
-  <div class="col-md-12 text-center">
-
-    <div class="error_number">
-      <small>ERROR</small><br>
-      {{ $error_number }}
-      <hr>
-    </div>
-
-    <div class="error_title text-muted">
-      @yield('title')
-    </div>
-
-    <div class="error_description text-muted">
-      <small>
-        @yield('description')
-     </small>
-    </div>
+        <!-- Tailwind CSS -->
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     
+    </head>
 
-  </div>
-</div>
-@endsection
+    <body class="bg-gray-400">
+        <div class="w-full h-screen flex items-end justify-center mx-auto bg-error-banner bg-no-repeat bg-center bg-fit">
+            <h1 class="relative flex text-7xl mb-64  ">
+                @yield('code') |
+                @yield('message')
+            </h1>
+        </div>
+    </body>
+
+</html>

@@ -15,26 +15,30 @@ module.exports = {
             },
             colors : {
                 gray: colors.trueGray,
-            }
+            },
+            backgroundImage: theme => ({
+                'error-banner': "url('/assets/img/error_banner.jpg')",
+            }),
         },
     },
 
     variants: {
         extend: {
-            backgroundColor: ['hover', 'focus','active'],
+            backgroundColor: ['hover', 'focus','active','group-hover'],
+            backgroundOpacity: ['hover', 'focus','active','group-hover'],
             margin: ['hover', 'focus','active'],
-            shadow: ['hover', 'focus','active','focus'],
-            opacity: ['disabled','active'],
+            shadow: ['hover', 'focus','active','focus','group-hover'],
+            opacity: ['disabled','active','group-hover'],
             animation: ['hover', 'focus','active','group-hover'],
             transition : ['hover', 'focus','group-hover'],
-            fontWeight: ['hover', 'focus'],
-            ringWidth: ['hover', 'active'],
-            ringColor: ['hover', 'active'],
-            ringOpacity: ['hover', 'active'],
-            borderWidth: ['hover', 'active'],
-            borderColor: ['hover', 'active'],
-            borderOpacity: ['hover', 'active'],
-            outline: ['hover', 'active', 'focus-within', 'focus'],
+            fontWeight: ['hover', 'focus','group-hover'],
+            ringWidth: ['hover', 'active','group-hover'],
+            ringColor: ['hover', 'active','group-hover'],
+            ringOpacity: ['hover', 'active','group-hover'],
+            borderWidth: ['hover', 'active','group-hover'],
+            borderColor: ['hover', 'active','group-hover'],
+            borderOpacity: ['hover', 'active','group-hover'],
+            outline: ['hover', 'active', 'focus-within', 'focus','group-hover'],
         },
     },
 
