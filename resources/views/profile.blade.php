@@ -46,10 +46,9 @@
                 <div
                     class="w-full lg:w-3/12 px-4 lg:order-2 flex justify-center relative"
                 >
-                    <img
-                        alt="Avatar"
-                        src="{{ $user->avatar }}"
+                    <img alt="Avatar"
                         class="shadow-2xl bg-white rounded-full h-36 w-36 align-middle border-none absolute -m-16 -ml-20 lg:-ml-16 object-cover ring-4 ring-white"
+                        src="{{ $user->avatar }}"
                     />
                 </div>
                 <!-- End Avatar -->

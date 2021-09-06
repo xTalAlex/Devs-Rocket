@@ -7,7 +7,7 @@
         <div class="w-full md:w-4/12 ml-auto mr-auto px-4">
 
           <img
-            alt=""
+            alt="Services image"
             class="max-w-full rounded-lg shadow-lg h-0 md:h-full invisible md:visible "
             src="./assets/img/andromeda.jpg"
           />

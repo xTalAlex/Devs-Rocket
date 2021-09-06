@@ -95,7 +95,7 @@
             class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-red-500  "
           >
 
-            <video class="w-full align-middle rounded-t-lg cursor-pointer" 
+            <video alt="Abous us video" class="w-full align-middle rounded-t-lg cursor-pointer" 
               onclick="this.paused ? this.play() : this.pause()"
               autoplay loop muted
             >

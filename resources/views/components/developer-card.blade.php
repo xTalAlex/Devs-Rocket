@@ -2,7 +2,7 @@
   <div class="px-6 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110">
     <a href="{{ route('profile',$developer) }}">
       <img
-        alt="..."
+        alt="{{ $developer->name }} Developer Avatar"
         src="{{ $developer->avatar }}"
         class="shadow-lg rounded-full max-w-full max-h-full mx-auto object-cover hover:ring-2 hover:ring-gray-900  hover:ring-opacity-60"
         style="width: 120px; height: 120px;"

@@ -38,7 +38,8 @@
                       <i class="fas fa-times text-gray-900 h-6 w-6 text-lg block ml-32 -mb-6 outline-none focus:outline-none cursor-pointer"
                         @click="removeAvatar=1"
                       ></i>
-                    <img class="flex object-cover w-36 h-36 mr-2 mt-2 rounded-full ring-2 ring-gray-900 items-center justify-center" :src="showedAvatar" alt="Avatar"
+                    <img alt="Avatar" class="flex object-cover w-36 h-36 mr-2 mt-2 rounded-full ring-2 ring-gray-900 items-center justify-center" 
+                      :src="showedAvatar"
                       @click="addFiles()"
                     />
                     <input type="file" class="hidden border-0 px-3 py-3 placeholder-gray-400 text-gray-900 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"

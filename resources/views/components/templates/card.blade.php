@@ -5,7 +5,9 @@
         :elements="{{ $template->elements }}"
     >
 
-      <img class="object-cover w-80 h-full shadow-xl rounded border-4 border-gray-400 border-opacity-20 hover:border-opacity-100" src="{{ $template->thumbnail }}">
+      <img alt="Template {{ $template->title }} Thumbnail" 
+        class="object-cover w-80 h-full shadow-xl rounded border-4 border-gray-400 border-opacity-20 hover:border-opacity-100" 
+        src="{{ $template->thumbnail }}">
 
     </modal-media>
 

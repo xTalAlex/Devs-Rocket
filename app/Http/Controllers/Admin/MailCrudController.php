@@ -77,7 +77,6 @@ class MailCrudController extends CrudController
                     ]);
                     
                     $request = $client->createPresignedRequest($command, '+20 minutes');
-                    //return '<a href="'.($entry->attachment->getUrl()).'" target="_blank">Attachment</a>';
                     return '<a href="'.( (string)$request->getUri() ).'" target="_blank">Attachment</a>';
                 }
                 else

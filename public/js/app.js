@@ -21701,9 +21701,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       return $data.removeAvatar = 1;
     })
   }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("img", {
+    alt: "Avatar",
     "class": "flex object-cover w-36 h-36 mr-2 mt-2 rounded-full ring-2 ring-gray-900 items-center justify-center",
     src: $options.showedAvatar,
-    alt: "Avatar",
     onClick: _cache[4] || (_cache[4] = function ($event) {
       return $options.addFiles();
     })
