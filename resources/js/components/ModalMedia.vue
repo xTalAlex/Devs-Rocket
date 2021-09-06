@@ -28,14 +28,14 @@
                     <div class="absolute inset-0 container flex mx-auto group"
                         v-if="elements.length>1"
                     >
-                        <div class="absolute left-0 top-0 flex items-center justify-center w-10 h-full bg-black bg-opacity-0 group-hover:bg-opacity-30 hover:shadow-xl cursor-pointer"
+                        <div class="absolute left-0 top-0 flex items-center justify-center w-10 h-full bg-black bg-opacity-0 group-hover:bg-opacity-20 hover:shadow-xl cursor-pointer"
                             
                             @click="previousElement()"
                         >
                             <i class="fas fa-chevron-left text-white opacity-30 text-lg"></i>
                         </div>
 
-                        <div class="absolute right-0 top-0 flex items-center justify-center w-10 h-full bg-black bg-opacity-0 group-hover:bg-opacity-30 hover:shadow-xl cursor-pointer"
+                        <div class="absolute right-0 top-0 flex items-center justify-center w-10 h-full bg-black bg-opacity-0 group-hover:bg-opacity-20 hover:shadow-xl cursor-pointer"
                             
                             @click="nextElement()"
                         >
