@@ -35,10 +35,11 @@ class MailOfRequest extends Mailable
             ->from($this->mail->email);
         
         if($this->mail->attachment)
-            $mail->attach( $this->mail->attachment->getUrl(),[
-                'as' => $this->mail->attachment->file_name,
-                'mime' => $this->mail->attachment->mime_type
-                ]);
+            $mail->attachFromStorageDisk('s3',$this->mail->attachment->getPath());
+            // $mail->attach( $this->mail->attachment->getUrl(),[
+            //     'as' => $this->mail->attachment->file_name,
+            //     'mime' => $this->mail->attachment->mime_type
+            //     ]);
         
         return $mail;
     }
