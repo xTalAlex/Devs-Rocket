@@ -69,7 +69,8 @@ class MailController extends Controller
             }
 
             if(config('mail.from'))
-                Mail::to(config('mail.from')->send(new MailOfRequest($mail)));
+                Mail::to( config('mail.from') )
+                        ->send( new MailOfRequest($mail) );
         }
         else{
             $notification_type="error";
