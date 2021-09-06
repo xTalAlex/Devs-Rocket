@@ -13,7 +13,7 @@
     ><button
       class="cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
       type="button"
-      onclick="toggleNavbar('example-collapse-navbar')"
+      onclick="toggleNavbar('hamburger-navbar')"
     >
       <i class="text-white hover:text-gray-300 fas fa-bars"></i>
     </button>
@@ -22,8 +22,9 @@
 
   <!-- Icons -->
   <div
-    class="lg:flex flex-grow items-center bg-black bg-opacity-90 lg:bg-transparent shadow-2xl lg:shadow-none origin-top transition-transform transform duration-500 lg:transition-none lg:transform-none scale-y-0 h-0"
-    id="example-collapse-navbar"
+    class="bg-black bg-opacity-95 lg:bg-transparent shadow-2xl lg:shadow-none lg:flex flex-grow items-center invisible h-0 lg:visible
+      origin-top transition-transform transform duration-500 lg:transition-none lg:transform-none scale-y-0"
+    id="hamburger-navbar"
   >
 
     <!-- Left Icon -->
