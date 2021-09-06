@@ -24,6 +24,8 @@ Route::get('/profile/{user?}', [App\Http\Controllers\UserController::class,'show
 Route::post('/mail/send',[App\Http\Controllers\MailController::class,'store'])->name('mail.store');
 
 Route::middleware(['auth'])->group(function () {
+    Route::get('/email/verify', function () { return view('auth.verify-email'); })->name('verification.notice');
+
     Route::post('/profile/update', [App\Http\Controllers\UserController::class,'update'] )->name('profile.update');
 });
 

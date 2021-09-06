@@ -104,7 +104,7 @@
                         <i
                         class="fas fa-envelope mr-2 text-lg opacity-90
                                 @if($user->email_verified_at)
-                                text-green-300 
+                                text-green-500 
                                 @else
                                 text-gray-500
                                 @endif

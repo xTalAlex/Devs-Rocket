@@ -62,13 +62,13 @@
                 <div class="mb-2">
                   <label class="block uppercase text-gray-900 text-xs font-bold mb-2"
                   >Social</label>
-                  <div class="max-h-52 overflow-y-auto overscroll-y-auto scrollbar-thin scrollbar-thumb-gray-900 px-4">
-                    <div v-for="social in socials" :key="social.id" class="inline-flex items-center justify-center rounded-full mt-2 w-auto bg-white p-1"
+                  <div class="max-h-52 overflow-y-auto overscroll-y-auto scrollbar-thin scrollbar-thumb-gray-900 pr-3">
+                    <div v-for="social in socials" :key="social.id" class="inline-flex items-center justify-start rounded-full mt-2 w-full bg-white p-1"
                       :class="{ 'bg-red-300' : errors && errors['socials.'+(social.id-1)+'.link']  }"
                     >
                       <SocialLink :social="social" class="-mb-1 -mr-1"/>
                       <input type="text" 
-                        class="border-0 placeholder-gray-400 text-gray-700 bg-transparent text-sm focus:border-transparent focus-within:outline-none w-96"               
+                        class="border-0 placeholder-gray-400 text-gray-700 bg-transparent text-sm w-full"               
                         :placeholder="social.description"
                         v-model="inputSocials.find(x => x.description===social.description).link"
                         style="transition: all 0.15s ease 0s;" />
@@ -80,13 +80,15 @@
           </div>
           <!--footer-->
           <div class="flex items-center justify-end p-6 rounded-b">
-            <button class="text-gray-900 bg-transparent border border-solid border-gray-900 hover:bg-gray-900 hover:text-white active:bg-red-600 font-bold uppercase text-sm px-6 py-3 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button" @click="toggleModal()">
-              Chiudi
-            </button>
-            <button class="text-gray-900 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button" 
+            <button class="text-gray-900 bg-transparent border border-solid border-gray-900 hover:bg-gray-900 hover:text-white active:bg-green-600 font-bold uppercase text-sm px-6 py-3 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
               @click="submit()"
             >
               Salva
+            </button>
+            <button class="text-gray-900 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button" 
+              @click="toggleModal()"
+            >
+              Chiudi
             </button>
           </div>
         </div>

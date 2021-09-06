@@ -21656,7 +21656,7 @@ var _hoisted_13 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(
 );
 
 var _hoisted_14 = {
-  "class": "max-h-52 overflow-y-auto overscroll-y-auto scrollbar-thin scrollbar-thumb-gray-900 px-4"
+  "class": "max-h-52 overflow-y-auto overscroll-y-auto scrollbar-thin scrollbar-thumb-gray-900 pr-3"
 };
 var _hoisted_15 = {
   "class": "flex items-center justify-end p-6 rounded-b"
@@ -21743,7 +21743,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.biography]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_12, [_hoisted_13, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_14, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.socials, function (social) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", {
       key: social.id,
-      "class": ["inline-flex items-center justify-center rounded-full mt-2 w-auto bg-white p-1", {
+      "class": ["inline-flex items-center justify-start rounded-full mt-2 w-full bg-white p-1", {
         'bg-red-300': $data.errors && $data.errors['socials.' + (social.id - 1) + '.link']
       }]
     }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_SocialLink, {
@@ -21753,7 +21753,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     /* PROPS */
     , ["social"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("input", {
       type: "text",
-      "class": "border-0 placeholder-gray-400 text-gray-700 bg-transparent text-sm focus:border-transparent focus-within:outline-none w-96",
+      "class": "border-0 placeholder-gray-400 text-gray-700 bg-transparent text-sm w-full",
       placeholder: social.description,
       "onUpdate:modelValue": function onUpdateModelValue($event) {
         return $data.inputSocials.find(function (x) {
@@ -21775,18 +21775,17 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   ))])])], 32
   /* HYDRATE_EVENTS */
   )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("footer"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_15, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("button", {
-    "class": "text-gray-900 bg-transparent border border-solid border-gray-900 hover:bg-gray-900 hover:text-white active:bg-red-600 font-bold uppercase text-sm px-6 py-3 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150",
-    type: "button",
+    "class": "text-gray-900 bg-transparent border border-solid border-gray-900 hover:bg-gray-900 hover:text-white active:bg-green-600 font-bold uppercase text-sm px-6 py-3 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150",
     onClick: _cache[8] || (_cache[8] = function ($event) {
-      return $options.toggleModal();
+      return $options.submit();
     })
-  }, " Chiudi "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("button", {
+  }, " Salva "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("button", {
     "class": "text-gray-900 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150",
     type: "button",
     onClick: _cache[9] || (_cache[9] = function ($event) {
-      return $options.submit();
+      return $options.toggleModal();
     })
-  }, " Salva ")])])])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]);
+  }, " Chiudi ")])])])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]);
 }
 
 /***/ }),
