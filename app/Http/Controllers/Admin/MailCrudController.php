@@ -5,8 +5,6 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Requests\MailRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
-use Storage;
-use Config;
 
 /**
  * Class MailCrudController
@@ -70,8 +68,8 @@ class MailCrudController extends CrudController
             'type'     => 'closure',
             'function' => function($entry) {
                 if($entry->attachment){
-                    $client = Storage::disk('s3')->getDriver()->getAdapter()->getClient();
-                    $bucket = Config::get('filesystems.disks.s3.bucket');
+                    $client = \Illuminate\Support\Facades\Storage::disk('s3')->getDriver()->getAdapter()->getClient();
+                    $bucket = config('filesystems.disks.s3.bucket');
                     
                     $command = $client->getCommand('GetObject', [
                         'Bucket' => $bucket,
