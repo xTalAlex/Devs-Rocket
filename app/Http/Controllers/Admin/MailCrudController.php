@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Requests\MailRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
+use Storage;
+use Config;
 
 /**
  * Class MailCrudController
@@ -67,8 +69,19 @@ class MailCrudController extends CrudController
             'label'    => 'Allegato',
             'type'     => 'closure',
             'function' => function($entry) {
-                if($entry->attachment)
-                    return '<a href="'.($entry->attachment->getUrl()).'" target="_blank">Attachment</a>';
+                if($entry->attachment){
+                    $client = Storage::disk('s3')->getDriver()->getAdapter()->getClient();
+                    $bucket = Config::get('filesystems.disks.s3.bucket');
+                    
+                    $command = $client->getCommand('GetObject', [
+                        'Bucket' => $bucket,
+                        'Key' => $entry->attachment->getPath(),  // file name in s3 bucket which you want to access
+                    ]);
+                    
+                    $request = $client->createPresignedRequest($command, '+20 minutes');
+                    //return '<a href="'.($entry->attachment->getUrl()).'" target="_blank">Attachment</a>';
+                    return '<a href="'.( (string)$request->getUri() ).'" target="_blank">Attachment</a>';
+                }
                 else
                     return '<span>-</span>';
             }
@@ -82,5 +95,7 @@ class MailCrudController extends CrudController
          * - CRUD::addColumn(['name' => 'price', 'type' => 'number']); 
          */
     }
-
+    
+    // Get the actual presigned-url
+    echo $presignedUrl = (string)$request->getUri();
 }

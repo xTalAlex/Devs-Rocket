@@ -134,7 +134,7 @@ class TemplateElementCrudController extends CrudController
             'type'     => 'closure',
             'function' => function($entry) {
                 if($entry->template)
-                    return '<a href="http://localhost:8000/admin/template/'.$entry->template->id.'/show">'.$entry->template->title.'</a>';
+                    return '<a href="/admin/template/'.$entry->template->id.'/show">'.$entry->template->title.'</a>';
                 else
                     return '<span>-</span>';
             }

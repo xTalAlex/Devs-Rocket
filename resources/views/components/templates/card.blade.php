@@ -1,11 +1,11 @@
-<div class="w-full lg:w-3/12 px-4 text-center mt-12 rounded-lg lg:mt-0 hover:shadow-lg ">
+<div class="w-full lg:w-3/12 px-4 text-center mt-12 rounded-lg lg:mt-0">
 
     <modal-media 
         clickable-class="flex w-full h-64  items-center justify-center mx-auto p-6"
         :elements="{{ $template->elements }}"
     >
 
-      <img class="object-cover w-80 h-full" src="{{ $template->thumbnail }}">
+      <img class="object-cover w-80 h-full shadow-xl rounded border-4 border-gray-400 border-opacity-20 hover:border-opacity-100" src="{{ $template->thumbnail }}">
 
     </modal-media>
 
