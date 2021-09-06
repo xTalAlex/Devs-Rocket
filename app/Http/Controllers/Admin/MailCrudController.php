@@ -95,7 +95,4 @@ class MailCrudController extends CrudController
          * - CRUD::addColumn(['name' => 'price', 'type' => 'number']); 
          */
     }
-    
-    // Get the actual presigned-url
-    echo $presignedUrl = (string)$request->getUri();
 }
