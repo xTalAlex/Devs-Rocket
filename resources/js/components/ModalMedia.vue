@@ -15,7 +15,7 @@
             <div class="container relative max-w-3xl max-h-screen pb-2 py-2 overflow-y-auto scrollbar-thin">
                 
                 <div class="sticky -top-2 z-50 inline-flex w-full items-start justify-end sm:justify-between bg-black bg-opacity-70 shadow px-2 pb-2">
-                    <p class="hidden sm:block text-left text-white text-md opacity-80 break-word mr-4 p-2">
+                    <p class="w-full mr-4 p-2 text-left text-white text-md opacity-80 break-word">
                         <span class="font-black">{{ curElement.title }}</span> - {{ curElement.description }}
                     </p>
                     <button @click="toggleModal()" class="outline-none focus:outline-none">

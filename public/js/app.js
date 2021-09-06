@@ -21514,7 +21514,7 @@ var _hoisted_5 = {
   "class": "sticky -top-2 z-50 inline-flex w-full items-start justify-end sm:justify-between bg-black bg-opacity-70 shadow px-2 pb-2"
 };
 var _hoisted_6 = {
-  "class": "hidden sm:block text-left text-white text-md opacity-80 break-word mr-4 p-2"
+  "class": "w-full mr-4 p-2 text-left text-white text-md opacity-80 break-word"
 };
 var _hoisted_7 = {
   "class": "font-black"
