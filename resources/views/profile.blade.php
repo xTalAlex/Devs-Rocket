@@ -95,6 +95,10 @@
                 >
                     {{ $user->full_name }}
                 </h3>
+
+            @if(!$user->email_verified_at)
+                <a href="{{ route('verification.notice') }}">
+            @endif
                 <div
                     class="text-sm leading-normal mt-0 mb-2 text-gray-500 font-bold lowercase"
                 >
@@ -114,6 +118,9 @@
                     <a href="mailto:{{ $user->email }}">{{ $user->email }}</a>
 
                 </div>
+            @if(!$user->email_verified_at)
+                </a>
+            @endif
 
                 @if($user->role)
                 <div class="mb-2 text-gray-700 mt-10">

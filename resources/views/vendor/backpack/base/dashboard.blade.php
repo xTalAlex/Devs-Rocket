@@ -5,8 +5,8 @@
         'type'        => 'jumbotron',
         'heading'     => 'Dashboard',
         //'content'     =>  trans('backpack::base.use_sidebar'),
-        //'button_link' => backpack_url('logout'),
-        //'button_text' => trans('backpack::base.logout'),
+        'button_link' => 'https://dashboard.tawk.to/#/dashboard/',
+        'button_text' => 'TawkTo Dashboard',
     ];
 @endphp
 

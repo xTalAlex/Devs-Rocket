@@ -15,7 +15,16 @@ module.exports = {
             },
             colors : {
                 gray: colors.trueGray,
-                //e37921 arancione
+                "zest-50": "#FCE6D4",
+                "zest-100": "#F9D0AE",
+                "zest-200": "#F5BA8A",
+                "zest-300": "#F0A466",
+                "zest-400": "#EA8F43",
+                "zest-500": "#E37921",
+                "zest-600": "#C0661B",
+                "zest-700": "#9B5318",
+                "zest-800": "#764014",
+                "zest-900": "#522D0F",
             },
             backgroundImage: theme => ({
                 'error-banner': "url('/assets/img/error_banner.jpg')",
