@@ -15,6 +15,7 @@ module.exports = {
             },
             colors : {
                 gray: colors.trueGray,
+                //e37921 arancione
             },
             backgroundImage: theme => ({
                 'error-banner': "url('/assets/img/error_banner.jpg')",

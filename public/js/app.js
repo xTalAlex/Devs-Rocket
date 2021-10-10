@@ -21572,12 +21572,12 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   }, null, 8
   /* PROPS */
   , ["src"]), $props.elements.length > 1 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
-    "class": "absolute left-0 top-0 flex items-center justify-center w-10 h-full bg-black bg-opacity-0 group-hover:bg-opacity-30 hover:shadow-xl cursor-pointer",
+    "class": "absolute left-0 top-0 flex items-center justify-center w-10 h-full bg-black bg-opacity-0 group-hover:bg-opacity-20 hover:shadow-xl cursor-pointer",
     onClick: _cache[3] || (_cache[3] = function ($event) {
       return $options.previousElement();
     })
   }, [_hoisted_11]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
-    "class": "absolute right-0 top-0 flex items-center justify-center w-10 h-full bg-black bg-opacity-0 group-hover:bg-opacity-30 hover:shadow-xl cursor-pointer",
+    "class": "absolute right-0 top-0 flex items-center justify-center w-10 h-full bg-black bg-opacity-0 group-hover:bg-opacity-20 hover:shadow-xl cursor-pointer",
     onClick: _cache[4] || (_cache[4] = function ($event) {
       return $options.nextElement();
     })
