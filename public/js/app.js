@@ -21171,12 +21171,17 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       showModal: false,
+      passwordEditing: false,
       newAvatar: '',
       removeAvatar: 0,
       //deve essere 1/0 perché formData non accetta true/false
       biography: this.user.biography,
       inputSocials: [],
-      errors: null
+      password: '',
+      new_password: '',
+      new_password_confirmation: '',
+      errors: null,
+      submitting: false
     };
   },
   computed: {
@@ -21184,9 +21189,36 @@ __webpack_require__.r(__webpack_exports__);
       var url = '/assets/img/no_avatar.png';
       if (this.newAvatar && !this.removeAvatar) url = URL.createObjectURL(this.newAvatar);else if (this.user.avatar && !this.removeAvatar) url = this.user.avatar;
       return url;
+    },
+    validPasswords: function validPasswords() {
+      return !this.passwordEditing || this.password.length >= 8 && this.new_password.length >= 8 && this.new_password_confirmation.length >= 8;
+    },
+    submitDisabled: function submitDisabled() {
+      return this.submitting || !this.validPasswords;
     }
   },
   methods: {
+    resetInputSocials: function resetInputSocials() {
+      var _this = this;
+
+      for (var i = 0; i < this.socials.length; i++) {
+        this.inputSocials.push({
+          id: this.socials[i].id,
+          description: this.socials[i].description,
+          link: this.user.socials.find(function (x) {
+            return x.description === _this.socials[i].description;
+          }) ? this.user.socials.find(function (x) {
+            return x.description === _this.socials[i].description;
+          }).pivot.link : ''
+        });
+      }
+    },
+    togglePasswordEditing: function togglePasswordEditing() {
+      this.passwordEditing = !this.passwordEditing;
+      this.password = '';
+      this.new_password = '';
+      this.new_password_confirmation = '';
+    },
     addFiles: function addFiles() {
       this.$refs.newAvatar.click();
     },
@@ -21202,10 +21234,13 @@ __webpack_require__.r(__webpack_exports__);
       this.newAvatar = '';
       this.removeAvatar = 0;
       this.biography = this.user.biography;
+      this.resetInputSocials();
+      if (this.passwordEditing) this.togglePasswordEditing();
     },
     submit: function submit() {
-      var _this = this;
+      var _this2 = this;
 
+      this.submitting = true;
       var formData = new FormData();
       if (this.newAvatar && !this.removeAvatar) formData.append('newAvatar', this.newAvatar);
       formData.append('removeAvatar', this.removeAvatar);
@@ -21217,6 +21252,12 @@ __webpack_require__.r(__webpack_exports__);
         formData.append('socials[' + i + '][link]', this.inputSocials[i].link);
       }
 
+      if (this.passwordEditing) {
+        formData.append('password', this.password);
+        formData.append('new_password', this.new_password);
+        formData.append('new_password_confirmation', this.new_password_confirmation);
+      }
+
       axios.post('/profile/update', formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
@@ -21224,24 +21265,13 @@ __webpack_require__.r(__webpack_exports__);
       }).then(function (response) {
         window.location.reload();
       })["catch"](function (error) {
-        _this.errors = error.response.data.errors;
+        _this2.errors = error.response.data.errors;
+        _this2.submitting = false;
       });
     }
   },
   mounted: function mounted() {
-    var _this2 = this;
-
-    for (var i = 0; i < this.socials.length; i++) {
-      this.inputSocials.push({
-        id: this.socials[i].id,
-        description: this.socials[i].description,
-        link: this.user.socials.find(function (x) {
-          return x.description === _this2.socials[i].description;
-        }) ? this.user.socials.find(function (x) {
-          return x.description === _this2.socials[i].description;
-        }).pivot.link : ''
-      });
-    }
+    this.resetInputSocials();
   }
 });
 
@@ -21659,6 +21689,36 @@ var _hoisted_14 = {
   "class": "max-h-52 overflow-y-auto overscroll-y-auto scrollbar-thin scrollbar-thumb-gray-900 pr-3"
 };
 var _hoisted_15 = {
+  "class": "mt-6 mb-2"
+};
+var _hoisted_16 = {
+  "class": "block uppercase text-gray-900 text-xs font-bold mb-2"
+};
+
+var _hoisted_17 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Modifica Password ");
+
+var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("i", {
+  "class": "fas fa-edit"
+}, null, -1
+/* HOISTED */
+);
+
+var _hoisted_19 = {
+  "class": "flex flex-col space-y-0.5 items-center"
+};
+var _hoisted_20 = {
+  key: 0,
+  "class": "text-xs text-red-500"
+};
+var _hoisted_21 = {
+  key: 1,
+  "class": "text-xs text-red-500"
+};
+var _hoisted_22 = {
+  key: 2,
+  "class": "text-xs text-red-500"
+};
+var _hoisted_23 = {
   "class": "flex items-center justify-end p-6 rounded-b"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
@@ -21680,7 +21740,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     })
   }, [_hoisted_8])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("body"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("form", {
     "class": "mb-4 flex-row text-left text-lg leading-relaxed",
-    onSubmit: _cache[7] || (_cache[7] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function ($event) {
+    onSubmit: _cache[11] || (_cache[11] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function ($event) {
       return $options.submit();
     }, ["prevent"]))
   }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("label", {
@@ -21772,17 +21832,81 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     );
   }), 128
   /* KEYED_FRAGMENT */
-  ))])])], 32
-  /* HYDRATE_EVENTS */
-  )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("footer"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_15, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("button", {
-    "class": "text-gray-900 bg-transparent border border-solid border-gray-900 hover:bg-gray-900 hover:text-white active:bg-green-600 font-bold uppercase text-sm px-6 py-3 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150",
-    onClick: _cache[8] || (_cache[8] = function ($event) {
-      return $options.submit();
+  ))])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_15, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("label", _hoisted_16, [_hoisted_17, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", {
+    "class": "cursor-pointer",
+    onClick: _cache[7] || (_cache[7] = function ($event) {
+      return $options.togglePasswordEditing();
     })
-  }, " Salva "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("button", {
+  }, [_hoisted_18])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_19, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("input", {
+    type: "password",
+    "class": ["border-0 border-b-2 rounded focus:ring-0 placeholder-gray-500 text-gray-900 bg-transparent text-sm w-full md:w-1/2", {
+      'border-red-500': $data.errors && $data.errors.password
+    }],
+    style: {
+      "transition": "all 0.15s ease 0s"
+    },
+    name: "password",
+    "onUpdate:modelValue": _cache[8] || (_cache[8] = function ($event) {
+      return $data.password = $event;
+    }),
+    placeholder: "Vecchia Password"
+  }, null, 2
+  /* CLASS */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.password]]), $data.errors && $data.errors.password ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("span", _hoisted_20, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.errors.password[0]), 1
+  /* TEXT */
+  )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("input", {
+    type: "password",
+    "class": ["border-0 border-b-2 rounded focus:ring-0 placeholder-gray-500 text-gray-900 bg-transparent text-sm w-full md:w-1/2 mt-2", {
+      'border-red-500': $data.errors && $data.errors.new_password
+    }],
+    style: {
+      "transition": "all 0.15s ease 0s"
+    },
+    name: "new_password",
+    "onUpdate:modelValue": _cache[9] || (_cache[9] = function ($event) {
+      return $data.new_password = $event;
+    }),
+    placeholder: "Nuova Password"
+  }, null, 2
+  /* CLASS */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.new_password]]), $data.errors && $data.errors.new_password ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("span", _hoisted_21, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.errors.new_password[0]), 1
+  /* TEXT */
+  )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("input", {
+    type: "password",
+    "class": ["border-0 border-b-2 rounded focus:ring-0 placeholder-gray-500 text-gray-900 bg-transparent text-sm w-full md:w-1/2", {
+      'border-red-500': $data.errors && $data.errors.new_password_confirmation
+    }],
+    style: {
+      "transition": "all 0.15s ease 0s"
+    },
+    name: "new_password_confirmation",
+    "onUpdate:modelValue": _cache[10] || (_cache[10] = function ($event) {
+      return $data.new_password_confirmation = $event;
+    }),
+    placeholder: "Conferma Password"
+  }, null, 2
+  /* CLASS */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.new_password_confirmation]]), $data.errors && $data.errors.new_password_confirmation ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("span", _hoisted_22, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.errors.new_password_confirmation[0]), 1
+  /* TEXT */
+  )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)], 512
+  /* NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $data.passwordEditing]])])], 32
+  /* HYDRATE_EVENTS */
+  )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("footer"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_23, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("button", {
+    "class": ["text-gray-900 bg-transparent border border-solid border-gray-900  active:bg-green-600 font-bold uppercase text-sm px-6 py-3 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150", {
+      'border-opacity-60 text-opacity-60': $options.submitDisabled,
+      'hover:bg-gray-900 hover:text-white': !$options.submitDisabled
+    }],
+    onClick: _cache[12] || (_cache[12] = function ($event) {
+      return $options.submit();
+    }),
+    disabled: $options.submitDisabled
+  }, " Salva ", 10
+  /* CLASS, PROPS */
+  , ["disabled"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("button", {
     "class": "text-gray-900 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150",
     type: "button",
-    onClick: _cache[9] || (_cache[9] = function ($event) {
+    onClick: _cache[13] || (_cache[13] = function ($event) {
       return $options.toggleModal();
     })
   }, " Chiudi ")])])])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]);

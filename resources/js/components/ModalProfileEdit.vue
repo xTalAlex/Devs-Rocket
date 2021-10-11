@@ -76,12 +76,53 @@
                   </div>
                 </div>
 
+                <div class="mt-6 mb-2">
+                  <label class="block uppercase text-gray-900 text-xs font-bold mb-2"
+                  >Modifica Password   
+                    <span class="cursor-pointer"
+                      @click="togglePasswordEditing()"
+                    >
+                      <i class="fas fa-edit"></i>
+                    </span>
+                  </label>
+                  <div class="flex flex-col space-y-0.5 items-center"
+                    v-show="passwordEditing"
+                  >
+                    <input type="password" class="border-0 border-b-2 rounded focus:ring-0 placeholder-gray-500 text-gray-900 bg-transparent text-sm w-full md:w-1/2"               
+                      :class="{ 'border-red-500' : errors && errors.password  }"
+                      style="transition: all 0.15s ease 0s;"
+                      name="password"
+                      v-model="password"
+                      placeholder="Vecchia Password" />
+                    <span v-if="errors && errors.password" class="text-xs text-red-500">{{ errors.password[0] }}</span>
+
+                    <input type="password" class="border-0 border-b-2 rounded focus:ring-0 placeholder-gray-500 text-gray-900 bg-transparent text-sm w-full md:w-1/2 mt-2"               
+                      :class="{ 'border-red-500' : errors && errors.new_password  }"
+                      style="transition: all 0.15s ease 0s;"
+                      name="new_password"
+                      v-model="new_password"
+                      placeholder="Nuova Password" />  
+                    <span v-if="errors && errors.new_password" class="text-xs text-red-500">{{ errors.new_password[0] }}</span>
+
+                    <input type="password" class="border-0 border-b-2 rounded focus:ring-0 placeholder-gray-500 text-gray-900 bg-transparent text-sm w-full md:w-1/2"               
+                      :class="{ 'border-red-500' : errors && errors.new_password_confirmation  }"
+                      style="transition: all 0.15s ease 0s;"
+                      name="new_password_confirmation"
+                      v-model="new_password_confirmation"
+                      placeholder="Conferma Password" /> 
+                    <span v-if="errors && errors.new_password_confirmation" class="text-xs text-red-500">{{ errors.new_password_confirmation[0] }}</span>     
+
+                  </div>
+                </div>
+
             </form>
           </div>
           <!--footer-->
           <div class="flex items-center justify-end p-6 rounded-b">
-            <button class="text-gray-900 bg-transparent border border-solid border-gray-900 hover:bg-gray-900 hover:text-white active:bg-green-600 font-bold uppercase text-sm px-6 py-3 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+            <button class="text-gray-900 bg-transparent border border-solid border-gray-900  active:bg-green-600 font-bold uppercase text-sm px-6 py-3 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+              :class="{ 'border-opacity-60 text-opacity-60' : submitDisabled, 'hover:bg-gray-900 hover:text-white' : !submitDisabled}"
               @click="submit()"
+              :disabled="submitDisabled"
             >
               Salva
             </button>
@@ -115,13 +156,20 @@
 
       return {
         showModal: false,
+        passwordEditing : false,
 
         newAvatar: '',
         removeAvatar : 0, //deve essere 1/0 perché formData non accetta true/false
         biography : this.user.biography,
         inputSocials : [],
 
+        password : '',
+        new_password : '',
+        new_password_confirmation : '',
+
         errors : null,
+
+        submitting : false,
 
       }
 
@@ -138,9 +186,33 @@
             return url;
         },
 
+        validPasswords(){
+          return  !this.passwordEditing || (this.password.length>=8 && this.new_password.length>=8 && this.new_password_confirmation.length>=8);
+        },
+
+        submitDisabled(){
+          return this.submitting || !this.validPasswords;
+        },
     },
 
     methods: {
+
+      resetInputSocials(){
+        for (var i = 0; i < this.socials.length ; i++) {
+          this.inputSocials.push({ 
+              id : this.socials[i].id,
+              description : this.socials[i].description, 
+              link  : this.user.socials.find( x => x.description === this.socials[i].description ) ? this.user.socials.find( x => x.description === this.socials[i].description ).pivot.link : '', 
+          })
+        }
+      },
+
+      togglePasswordEditing(){
+        this.passwordEditing = !this.passwordEditing;
+        this.password='';
+        this.new_password=''
+        this.new_password_confirmation='';
+      },
 
       addFiles(){
         this.$refs.newAvatar.click();
@@ -161,9 +233,13 @@
         this.newAvatar='';
         this.removeAvatar=0;
         this.biography=this.user.biography;
+        this.resetInputSocials();
+        if(this.passwordEditing)
+          this.togglePasswordEditing();
       },
 
       submit(){
+        this.submitting=true;
         let formData = new FormData();
 
         if(this.newAvatar && !this.removeAvatar)
@@ -175,6 +251,11 @@
             formData.append('socials['+i+'][id]', this.inputSocials[i].id);
             formData.append('socials['+i+'][description]', this.inputSocials[i].description);
             formData.append('socials['+i+'][link]', this.inputSocials[i].link);
+        }
+        if(this.passwordEditing){
+          formData.append('password', this.password);
+          formData.append('new_password', this.new_password);
+          formData.append('new_password_confirmation', this.new_password_confirmation);
         }
 
         axios.post('/profile/update',
@@ -190,6 +271,7 @@
         })
         .catch((error) => {
           this.errors=error.response.data.errors;
+          this.submitting=false;
         });
       },
 
@@ -198,13 +280,7 @@
 
     mounted () {
 
-      for (var i = 0; i < this.socials.length ; i++) {
-        this.inputSocials.push({ 
-            id : this.socials[i].id,
-            description : this.socials[i].description, 
-            link  : this.user.socials.find( x => x.description === this.socials[i].description ) ? this.user.socials.find( x => x.description === this.socials[i].description ).pivot.link : '', 
-        })
-      }
+      this.resetInputSocials();
 
     },
 

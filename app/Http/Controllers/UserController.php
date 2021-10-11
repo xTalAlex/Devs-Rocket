@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rules;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -88,6 +90,8 @@ class UserController extends Controller
             'socials.*.id' => 'required|exists:socials,id',
             'socials.*.description' => 'required|exists:socials,description',
             'socials.*.link' => 'nullable|string',
+            'password' => ['required_with:new_password', new \App\Rules\MatchOldPassword ],
+            'new_password' => ['required_with:password', 'confirmed', Rules\Password::defaults() ],
         ]);
 
         if($validated['newAvatar'] ?? false){
@@ -111,9 +115,11 @@ class UserController extends Controller
         }
         auth()->user()->socials()->sync($sync_data);
 
-        auth()->user()->update([
-            'biography' => $validated['biography'] ?? null,
-        ]);
+        auth()->user()->biography=$validated['biography'] ?? null;
+        if(isset($validated['new_password'])){
+            auth()->user()->password=Hash::make($validated['new_password']);
+        }
+        auth()->user()->save();
     }
 
     /**

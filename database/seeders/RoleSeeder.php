@@ -15,7 +15,7 @@ class RoleSeeder extends Seeder
     public function run()
     {
         $items = [   
-            ['id' => 1, 'description' => 'Founder & CEO' ],         
+            ['id' => 1, 'description' => 'Founder' ],         
 			['id' => 2, 'description' => 'Web Developer' ],
             ['id' => 3, 'description' => 'UI/UX Designer' ],
 			['id' => 4, 'description' => 'Marketing Specialist' ],
