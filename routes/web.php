@@ -20,6 +20,13 @@ Route::get('/', function () {
     ]);
 })->name('home');
 
+// //route per testare email markdown
+// Route::get('/mailable', function () {
+//     $mail = App\Models\Mail::first();
+
+//     return new App\Mail\MailOfRequest($mail);
+// });
+
 Route::get('/profile/{user?}', [App\Http\Controllers\UserController::class,'show'] )->name('profile');
 Route::post('/mail/send',[App\Http\Controllers\MailController::class,'store'])->name('mail.store');
 
