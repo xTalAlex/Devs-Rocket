@@ -9,9 +9,9 @@
         <i class="fas fa-cog w-full h-full"></i> 
     </a>
     
-    <div v-if="showModal" class="opacity-80 fixed inset-0 z-50 bg-black"></div>
+    <div v-if="showModal" @dblclick="showModal=false" class="opacity-80 fixed inset-0 z-50 bg-black"></div>
 
-    <div v-if="showModal" class="fixed z-50 inset-0 mx-auto max-w-xl outline-none focus:outline-none px-2 h-screen overflow-scroll scrollbar-thin scrollbar-thumb-gray-900">
+    <div v-if="showModal" class="fixed z-50 inset-0 mx-auto max-w-2xl outline-none focus:outline-none px-2 h-screen overflow-scroll scrollbar-thin">
       <div class=" w-full mx-auto my-1 xl:my-6 ">
         <!--c ontent-->
         <div class="border-0 rounded-lg shadow-lg relative p-5 flex flex-col w-full bg-gray-300 outline-none focus:outline-none h-full">
@@ -85,7 +85,7 @@
                       <i class="fas fa-edit"></i>
                     </span>
                   </label>
-                  <div class="flex flex-col space-y-0.5 items-center"
+                  <div class="flex flex-col space-y-0.5 mt-4 items-start"
                     v-show="passwordEditing"
                   >
                     <input type="password" class="border-0 border-b-2 rounded focus:ring-0 placeholder-gray-500 text-gray-900 bg-transparent text-sm w-full md:w-1/2"               
