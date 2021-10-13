@@ -72,7 +72,7 @@
           <p
             class="text-lg font-light leading-relaxed mt-4 mb-4 text-gray-700"
           >
-            Siamo un gruppo di ragazzi appassionati di programmazione e sfruttiamo il nostro tempo libero per rimanere sempre aggiornati 
+            Siamo un gruppo di appassionati di programmazione e sfruttiamo il nostro tempo libero per rimanere sempre aggiornati 
             sulle novitá che riguardano le tecnologie con cui lavoriamo.
             In questo modo riusciamo ad implementare grafiche moderne e funzionalitá complesse. 
           </p>
