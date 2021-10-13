@@ -14,6 +14,9 @@ Route::group([
     ),
     'namespace'  => 'App\Http\Controllers\Admin',
 ], function () { // custom admin routes
+    Route::get('/settings', [App\Http\Controllers\SettingController::class,'index'] )->name('settings');
+    Route::post('/settings', [App\Http\Controllers\SettingController::class,'store'] )->name('settings.store');
+    
     Route::crud('user', 'UserCrudController');
     Route::crud('role', 'RoleCrudController');
     Route::crud('social', 'SocialCrudController');

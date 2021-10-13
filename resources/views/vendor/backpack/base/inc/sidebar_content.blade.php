@@ -10,3 +10,4 @@
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('role') }}'><i class='nav-icon la la-briefcase'></i> Roles</a></li>
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('social') }}'><i class='nav-icon la la-link'></i> Socials</a></li>
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('template-element') }}'><i class="nav-icon la la-puzzle-piece"></i> Template Elements</a></li>
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('settings') }}'><i class='nav-icon la la-key'></i> Settings</a></li>
