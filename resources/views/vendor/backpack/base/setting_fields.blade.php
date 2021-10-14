@@ -35,10 +35,9 @@
                                                 <div class="col-md-8">
                                                     <input type="{{ $field['type'] }}"
                                                         class="form-control {{ \Illuminate\Support\Arr::get( $field, 'class') }}
-                                                            {{ $errors->has($field['name']) ? ' is-invalid' : '' }}
-                                                        "
+                                                            {{ $errors->has($field['name']) ? ' is-invalid' : '' }}"
                                                         name="{{ $field['name'] }}"
-                                                        value="{{ old($field['name'], setting($field['name'])) }}"
+                                                        value="{{ old($field['name'], \setting($field['name'])) }}"
                                                         id="{{ $field['name'] }}"
                                                         placeholder="{{ $field['label'] }}">
 
@@ -49,13 +48,13 @@
                                             <div class="form-group ml-3">
                                                 <label class="col-form-label" for="{{ $field['name'] }}">{{ $field['label'] }}</label>
                                                 <div class="col-md-8">
-                                                    <select class="form-control border border-danger {{ \Illuminate\Support\Arr::get( $field, 'class') }} 
-                                                            {{ $errors->has($field['name']) ? ' is-invalid' : '' }}" 
+                                                    <select class="form-control {{ \Illuminate\Support\Arr::get( $field, 'class') }} 
+                                                                @if($errors->has($field['name'])) border border-danger @endif" 
                                                         id="{{ $field['name'] }}" 
                                                         name="{{ $field['name'] }}"
                                                     >
                                                         @foreach(\Illuminate\Support\Arr::get($field, 'options', []) as $val => $label)
-                                                            <option @if( old($field['name'], setting($field['name'])) == $val ) selected  @endif value="{{ $val }}">{{ $label }}</option>
+                                                            <option @if( old($field['name'], \setting($field['name'])) == $val ) selected  @endif value="{{ $val }}">{{ $label }}</option>
                                                         @endforeach
                                                     </select>
 
