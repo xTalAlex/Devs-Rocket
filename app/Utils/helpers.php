@@ -1,7 +1,5 @@
 <?php
 
-namespace App\Utils;
-
 if (! function_exists('setting')) {
 
     function setting($key, $default = null)
