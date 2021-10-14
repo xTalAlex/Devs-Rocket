@@ -37,7 +37,7 @@
                                                         class="form-control {{ \Illuminate\Support\Arr::get( $field, 'class') }}
                                                             {{ $errors->has($field['name']) ? ' is-invalid' : '' }}"
                                                         name="{{ $field['name'] }}"
-                                                        value="{{ old($field['name'], \setting($field['name'])) }}"
+                                                        value="{{ old($field['name'], setting($field['name'])) }}"
                                                         id="{{ $field['name'] }}"
                                                         placeholder="{{ $field['label'] }}">
 
@@ -54,7 +54,7 @@
                                                         name="{{ $field['name'] }}"
                                                     >
                                                         @foreach(\Illuminate\Support\Arr::get($field, 'options', []) as $val => $label)
-                                                            <option @if( old($field['name'], \setting($field['name'])) == $val ) selected  @endif value="{{ $val }}">{{ $label }}</option>
+                                                            <option @if( old($field['name'], setting($field['name'])) == $val ) selected  @endif value="{{ $val }}">{{ $label }}</option>
                                                         @endforeach
                                                     </select>
 
