@@ -14,7 +14,7 @@
           src="{{ $template->thumbnail }}"
         >
 
-        <h1 class="absolute text-2xl font-black text-gray-400 opacity-100 capitalize 
+        <h1 class="absolute text-2xl font-black text-gray-800 opacity-90 capitalize 
               transition-all duration-500 ease-in-out transform scale-150 group-hover:scale-100">
           {{ $template->title }}
         </h1>
