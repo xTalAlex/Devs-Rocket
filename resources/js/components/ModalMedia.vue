@@ -8,10 +8,10 @@
             </slot>
         </div>
 
-        <div v-if="showModal" class="fixed inset-0 z-40 h-screen bg-black opacity-90">
+        <div v-if="showModal" class="opacity-80 fixed inset-0 z-50 bg-black">
         </div>
 
-        <div v-if="showModal" class="fixed inset-0 z-50 w-full p-2 h-screen overflow-hidden flex justify-center items-center" >
+        <div v-if="showModal"  @dblclick="showModal=false" class="fixed inset-0 z-50 w-full p-2 h-screen overflow-hidden flex justify-center items-center">
             <div class="container relative max-w-3xl max-h-screen pb-2 py-2 overflow-y-auto scrollbar-thin">
                 
                 <div class="sticky -top-2 z-50 inline-flex w-full items-start justify-end sm:justify-between bg-black bg-opacity-70 shadow px-2 pb-2">
